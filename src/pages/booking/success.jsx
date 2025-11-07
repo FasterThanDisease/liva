@@ -4,7 +4,7 @@ import { CiClock2 } from "react-icons/ci";
 import { CiLocationOn } from "react-icons/ci";
 import { CiBoxList } from "react-icons/ci";
 import dynamic from "next/dynamic";
-const Map = dynamic(() => import("../../components/utils/map"), { ssr: false });
+const Map = dynamic(() => import("../../components/assets/map"), { ssr: false });
 import QRCode from "qrcode";
 import { gsap } from "gsap";
 

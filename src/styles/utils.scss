@@ -1,0 +1,939 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+
+
+$color1: #E91F64;
+$color2: #1a1a1a;
+$color3: #B81850;
+$color4: #FE68A7; // text farbe
+$color5: #fecce3;
+$color6: #FEE5F0;
+$color7: #fef1f7;
+
+
+$color13: #D11C5A;
+$color12: #B81850;
+$color14: #9F1546;
+$color15: #86123C;
+$color16 : #6D0E32;
+
+$colorgradient: transparent linear-gradient(121deg, #E91F64 0%, #B31850 100%) 0% 0% no-repeat padding-box;
+
+$color9: #1a1a1a;
+
+$color11: #eef2f7;
+$color12: #27272a;
+
+
+$font1: 'Jost', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    sans-serif;
+
+h1 {
+
+    font-family: $font1, sans-serif;
+    font-weight: 500;
+    line-height: 1.5;
+
+    @media (min-width: 450px) {
+        font-size: 4em;
+    }
+}
+
+h2 {
+
+    font-family: $font1, sans-serif;
+    font-weight: 500;
+    line-height: 1.5;
+
+    @media (min-width: 450px) {
+        font-size: 2.5em;
+    }
+
+}
+
+h3 {
+
+    font-family: $font1, sans-serif;
+    font-weight: 350;
+    line-height: 1.5;
+
+    @media (min-width: 450px) {
+        font-size: 1.5em;
+    }
+
+}
+
+h4 {
+
+    font-family: $font1, sans-serif;
+    font-weight: 350;
+    line-height: 1.5;
+
+    @media (min-width: 450px) {
+        font-size: 1.25em;
+    }
+}
+
+h5 {
+
+    font-family: $font1, sans-serif;
+    font-weight: 350;
+    line-height: 1.5;
+}
+
+h6 {
+
+    font-family: $font1, sans-serif;
+    font-weight: 350;
+    line-height: 1.5;
+}
+
+span {
+
+    font-family: $font1, sans-serif;
+    font-weight: 350;
+    line-height: 1.5;
+
+
+
+}
+
+p {
+    font-family: $font1, sans-serif;
+    line-height: 1.5;
+
+}
+
+.first {
+    padding-top: 132px;
+
+    @media (min-width: 450px) {
+        padding-top: 200px;
+    }
+}
+
+
+.map-responsive {
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    /* 16:9 Verhältnis */
+    height: 0;
+}
+
+.map-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+
+
+
+.image-zoom {
+    display: inline-block; // Hält das Bild im Flow des Layouts
+    overflow: hidden; // Verhindert, dass das Bild aus dem Container herausragt
+    position: relative;
+
+    img {
+        display: block; // Entfernt unerwünschte Zwischenräume
+        transition: transform 0.2s ease, filter 0.5s ease; // Smoothes Zoomen und Filterübergänge
+        transform: scale(1); // Ausgangszustand
+    }
+
+    &:hover img {
+        transform: scale(1.2); // Zoom-Effekt beim Hover
+        filter: brightness(1.1); // Optional: Bild etwas aufhellen
+    }
+}
+
+
+.maximal {
+    max-width: 100% !important;
+}
+
+.marker {
+    background: linear-gradient(transparent 60%, #ffeb3b 60%);
+    padding: 0 2px;
+}
+
+.marker-circle {
+    position: relative;
+    display: inline-block;
+    padding: 0 4px;
+    z-index: 0;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: -0.2em;
+        left: -0.3em;
+        width: 120%;
+        height: 140%;
+        background: url('/images/circle-marker.svg') no-repeat center center;
+        background-size: contain;
+        z-index: -1;
+        pointer-events: none;
+        opacity: 0.9;
+    }
+}
+
+
+
+.title {
+
+
+    font-size: 1.5em;
+    font-weight: 500;
+
+    @media (min-width: 768px) {
+        font-size: 3em;
+    }
+}
+
+
+.whatsapp-icon {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    border-radius: 50px;
+    background-color: #25d366;
+    padding: 10px;
+    display: none; // Standardmäßig ausgeblendet
+    z-index: 9999;
+    transition: opacity 0.3s ease-in-out;
+
+    img {
+        width: 50px;
+        height: 50px;
+    }
+
+
+
+    &.visible {
+        display: block; // Erst sichtbar machen, wenn Klasse hinzugefügt wird
+    }
+}
+
+
+
+.paragraph {
+    overflow: hidden;
+    transition: all 0.3s ease;
+
+    .faq-content {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease, opacity 0.3s ease;
+
+        &.open {
+            max-height: 1000px;
+            opacity: 1;
+        }
+    }
+
+    .icon-wrapper {
+        display: inline-block;
+        transition: transform 0.3s ease;
+
+        &.open {
+            transform: rotate(180deg);
+            /* Dreht das Icon um 180° */
+        }
+    }
+}
+
+
+
+
+.icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    width: 45px;
+    cursor: pointer;
+    /* Containergröße passend für das Icon */
+    border-radius: 5px;
+    height: 45px;
+    border: 5px solid transparent;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: #f0f0f0;
+    }
+
+    .item {
+        cursor: pointer;
+    }
+}
+
+.hoveri {
+
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+
+        transform: scale(1.05);
+    }
+}
+
+
+.pointer {
+    cursor: pointer;
+}
+
+.graber {
+    cursor: grab;
+}
+
+//css position
+
+.position-relative {
+    position: relative;
+}
+
+.position-absolute {
+    position: absolute;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.d-none {
+    display: none;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.grid-container {
+    display: grid;
+}
+
+.grid-1 {
+    grid-template-columns: repeat(1, 1fr);
+}
+
+.grid-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-5 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-4 {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (min-width: 450px) {
+    .d-md-none {
+        display: none;
+    }
+}
+
+.Modal {
+    position: fixed;
+    background-color: #fff;
+    padding: 50px;
+    z-index: 1000;
+}
+
+.overlay-1 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+
+.hidescrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+
+.hover-shadow {
+
+    /* Standard-Stile */
+    //   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Nur unterhalb des Divs */
+    transition: box-shadow 0.2s ease-in-out;
+
+    /* Hover-Effekt */
+    &:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        /* Kräftigerer Schatten nur unterhalb beim Hover */
+    }
+}
+
+.popover {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background-color: white;
+    border: 1px solid;
+    top: calc(100% + 10px);
+    padding: 4px;
+
+    transform: translateX(-50%); // Verschieben, um das Element zu zentrieren
+    min-height: 100px;
+    min-width: 250px;
+    z-index: 1000;
+    border-radius: 4px;
+    border-style: solid;
+    border-color: #dee2e6;
+}
+
+
+.upload-button {
+    position: relative;
+    width: 100%;
+    max-width: 500px; // Maximalbreite, falls benötigt
+    height: 300px; // Höhe des Drag-and-Drop-Feldes
+    border: 2px dashed #ccc; // Gestreifte Grenze
+    border-radius: 8px; // Abgerundete Ecken
+    background-color: #f9f9f9; // Hintergrundfarbe
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888; // Textfarbe
+    font-size: 18px; // Schriftgröße
+    text-align: center;
+    cursor: pointer; // Zeigt an, dass der Bereich klickbar ist
+    transition: background-color 0.3s, border-color 0.3s; // Übergangseffekte
+
+    // Hover-Effekte
+    &:hover {
+        background-color: #e0e0e0;
+        border-color: #666;
+    }
+
+    // Drag-over-Effekte
+    &.drag-over {
+        background-color: #ddd;
+        border-color: #333;
+    }
+
+    // Fallback für mobile Geräte
+    @media (max-width: 768px) {
+        height: 200px;
+        font-size: 16px;
+    }
+
+    // Input-Feld wird unsichtbar gemacht
+    input[type="file"] {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+    }
+}
+
+.floating-image {
+    object-fit: contain;
+
+    @media (min-width: 450px) {
+        object-fit: cover;
+
+    }
+}
+
+.link {
+    text-decoration: none;
+    color: #333;
+}
+
+
+
+
+.section {
+    padding: 100px 20px;
+
+
+
+    &:last-child {
+        border-bottom: none;
+    }
+}
+
+
+.stepper {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    gap: 20px;
+
+    .step {
+        display: flex;
+        align-items: flex-start;
+        position: relative;
+        margin-bottom: 20px;
+
+
+        &__number {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            color: #555;
+            font-weight: bold;
+            font-size: 1rem;
+            flex-shrink: 0;
+            margin-right: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        &__content {
+            flex: 1;
+
+            &__label {
+                font-weight: 400;
+                margin-bottom: 5px;
+                color: #555;
+            }
+
+            &__description {
+                font-size: 0.9rem;
+                color: #777;
+            }
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            left: 14px;
+            /* Mitte des Kreises */
+            top: 35px;
+            width: 2px;
+            height: calc(100% - 35px);
+            background-color: #e0e0e0;
+            z-index: 0;
+        }
+
+        &:last-child::before {
+            display: none;
+            /* Entfernt die Linie nach dem letzten Schritt */
+        }
+
+        &.active .step__number {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        &.completed .step__number {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        &.completed::before {
+            background-color: #28a745;
+        }
+    }
+}
+
+.blog-card {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    max-width: 400px;
+
+    &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    &__thumbnail {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        padding: 10px;
+    }
+
+    &__content {
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
+    }
+
+    &__title {
+        font-size: 1.5rem;
+        margin-bottom: 16px;
+        color: #333;
+        line-height: 1.2;
+    }
+
+    &__button {
+        margin-top: auto;
+        padding: 10px 16px;
+        font-size: 1rem;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: #0056b3;
+        }
+    }
+}
+
+
+// Button-Klasse zur Rücksetzung der Standard-Styles
+.button-reset {
+    // Entfernen der Standard-Ränder und Hintergründe
+    background: none;
+    border: none;
+    box-shadow: none;
+
+    // Entfernen der Standard-Text-Stile
+    font: inherit;
+    color: inherit;
+    text-align: inherit;
+    text-decoration: none;
+    cursor: pointer;
+
+    // Verhindern von Standard-Rändern und Padding
+    margin: 0;
+    padding: 0;
+
+    // Entfernen von Standard-Hover- und Focus-Effekten
+    &:hover,
+    &:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+    // Vermeidung der Textveränderung bei Klick
+    -webkit-appearance: none; // Für Webkit-basierte Browser
+    appearance: none;
+
+    // Optionale Styles zur Vermeidung von Fehlern in älteren Browsern
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+
+.floating-label {
+    position: relative;
+    margin-bottom: 20px;
+
+    input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        outline: none;
+        transition: border-color 0.3s;
+
+        &:focus {
+            border-color: #007bff;
+        }
+
+        &:valid {
+            +label {
+                transform: translateY(-20px);
+                font-size: 0.8em;
+                color: #007bff;
+            }
+        }
+    }
+
+    label {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        pointer-events: none;
+        transition: transform 0.3s, font-size 0.3s, color 0.3s;
+    }
+}
+
+
+.input-group {
+    font-size: 1.25rem;
+    position: relative;
+
+    input {
+        all: unset;
+        color: #cacaca;
+        padding: 1rem;
+        border: 1px solid #cacacaca;
+        border-radius: 10px;
+        transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+
+
+    }
+
+    .label {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        color: black;
+        pointer-events: none;
+        transition: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+
+
+}
+
+
+.image-hover {
+    display: inline-block;
+    overflow: hidden; // verhindert, dass das Bild über den Container hinausgeht
+
+    img {
+        display: block;
+        width: 100%;
+        height: auto;
+        filter: grayscale(100%);
+        transition: filter 0.5s ease, transform 0.5s ease;
+        transform-origin: center center; // Zoom von der Bildmitte
+    }
+
+    &:hover img {
+        filter: grayscale(0%);
+        transform: scale(1.1); // Bild zoomt in sich rein
+    }
+}
+
+.showcase {
+    padding: 80px 20px;
+    background: linear-gradient(135deg,
+            rgba(233, 31, 100, 0.15) 0%, // #E91F64 sehr transparent
+            rgba(233, 31, 100, 0.05) 50%,
+            rgba(255, 255, 255, 0.95) 100%);
+    text-align: center;
+    color: #222;
+    position: relative;
+    overflow: hidden;
+
+    // Optional: leichte Muster- oder Formüberlagerung (fancy touch)
+    &::before {
+        content: "";
+        position: absolute;
+        top: -100px;
+        right: -150px;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(233, 31, 100, 0.2) 0%, transparent 70%);
+        border-radius: 50%;
+        z-index: 0;
+    }
+
+    .container {
+        position: relative;
+        z-index: 1;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    h2 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 15px;
+        color: #E91F64;
+        text-shadow: 0 2px 8px rgba(233, 31, 100, 0.3);
+    }
+
+    p.description {
+        font-size: 1.25rem;
+        color: #444;
+        margin-bottom: 50px;
+        max-width: 650px;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: 500;
+        letter-spacing: 0.02em;
+    }
+
+
+    .col-md-4 {
+        flex: 0 0 calc(33.333% - 23px);
+        max-width: calc(33.333% - 23px);
+
+        @media (max-width: 768px) {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+    }
+
+    .image-hover {
+        overflow: hidden;
+        border-radius: 18px;
+        box-shadow: 0 8px 25px rgba(233, 31, 100, 0.15);
+        cursor: pointer;
+        background: #fff;
+        transition: box-shadow 0.35s ease, transform 0.35s ease;
+        position: relative;
+
+        &:hover {
+            box-shadow: 0 16px 50px rgba(233, 31, 100, 0.35);
+            transform: translateY(-10px);
+        }
+
+        img {
+            width: 100%;
+            aspect-ratio: 3 / 4;
+            height: 400px;
+            object-fit: contain;
+            object-position: center center;
+            filter: grayscale(100%);
+            transition: filter 0.6s ease, transform 0.6s ease;
+            transform-origin: center center;
+            border-radius: 18px;
+        }
+
+        &:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.12);
+        }
+    }
+
+    h3 {
+        margin-top: 18px;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #E91F64;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+    }
+
+    p {
+        color: #666;
+        font-weight: 400;
+        margin-top: 8px;
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+}
+
+.gradient-background {
+    background: linear-gradient(135deg,
+            rgba(233, 31, 100, 0.15) 0%,
+            rgba(233, 31, 100, 0.05) 50%,
+            rgba(255, 255, 255, 0.95) 100%);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: -80px;
+        right: -120px;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(233, 31, 100, 0.2) 0%, transparent 70%);
+        border-radius: 50%;
+        z-index: 0;
+    }
+
+    >* {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.gradient-background-dark {
+    background: linear-gradient(135deg,
+            rgba(233, 31, 100, 0.25) 0%,
+            rgba(233, 31, 100, 0.05) 35%,
+            #121212 100%);
+    position: relative;
+    overflow: hidden;
+    color: #f5f5f5;
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: -80px;
+        right: -120px;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(233, 31, 100, 0.3) 0%, transparent 70%);
+        border-radius: 50%;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    >* {
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.image-gradient-wrapper {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+
+    img {
+        display: block;
+        width: 100%;
+        min-height: 80dvh;
+        height: auto;
+        object-fit: cover;
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to top left,
+                rgba(255, 255, 255, 0.9),
+                rgba(233, 31, 100, 0.25),
+                rgba(233, 31, 100, 0.55));
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .content {
+        position: absolute;
+        z-index: 2;
+        color: #fff;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+}

@@ -5,7 +5,7 @@ import Image from 'next/image'
 export default function Footer() {
     const language = 'de'
     return (
-        <footer className='bg-darki text-white' style={{ minHeight: 300 }}>
+        <footer className='bg-dark text-white' style={{ minHeight: 300 }}>
             <div className="container" style={{}}>
                 <div className="row justify-content-start mb-2 p-0">
                     <div className="col-12 py-md-5 d-flex justify-content-start  p-0">
@@ -48,7 +48,7 @@ export default function Footer() {
                             <li className="pointer" ><span className='hover-border pointer'>Wilhelmshöher Allee 185</span> </li>
                             <li className="pointer mt-5" ><Link className='text-white' href="tel:+4956134914" style={{ textDecoration: 'none' }}><span className='hover-border pointer' >(+49) 561 349 14</span></Link> </li>
                             <li className="pointer" ><span className='hover-border pointer'>Di-Sa, 9.00-19:00 Uhr</span> </li>
-                            <li className="pointer mt-3" ><span className='hover-border pointer'>Oder über unser <Link href={'/kontakt'} className='text-dark fw-bold' style={{ textDecoration: 'underline' }}>Kontaktformular</Link></span> </li>
+                            <li className="pointer mt-3" ><span className='hover-border pointer'>Oder über unser <Link href={'/kontakt'} className='text-white fw-bold' style={{ textDecoration: 'underline' }}>Kontaktformular</Link></span> </li>
 
 
                         </ul>
@@ -67,13 +67,13 @@ export default function Footer() {
                             {`Copyright © ${new Date().getFullYear()} Liva Hairdress | Wilhelmshöher Allee 185, 34121 Kassel, Germany`}
                         </span>
                         <div className="d-flex flex-wrap justify-content-center justify-content-md-end align-items-start   " style={{ fontSize: 12, fontWeight: 300, flex: 1 }}>
-                            <Link className='text-dark px-2' style={{ textDecoration: 'none' }} href='/agb'><span className="me-2 pointer" >{language === 'de' ? 'AGB' : 'Terms of use'}</span></Link>
+                            <Link className='text-white px-2' style={{ textDecoration: 'none' }} href='/agb'><span className="me-2 pointer" >{language === 'de' ? 'AGB' : 'Terms of use'}</span></Link>
                             <span className="me-2">|</span>
-                            <Link className='text-dark px-2' style={{ textDecoration: 'none' }} href='/impressum'><span className="me-2 pointer" >{language === 'de' ? 'Impressum' : 'Imprint'}</span></Link>
+                            <Link className='text-white px-2' style={{ textDecoration: 'none' }} href='/impressum'><span className="me-2 pointer" >{language === 'de' ? 'Impressum' : 'Imprint'}</span></Link>
                             <span className="me-2">|</span>
-                            <Link className='text-dark px-2' style={{ textDecoration: 'none' }} href='/pp'><span className="me-2 pointer" >{language === 'de' ? 'Datenschutz-Bestimmungen' : 'Privacy policy'}</span></Link>
+                            <Link className='text-white px-2' style={{ textDecoration: 'none' }} href='/pp'><span className="me-2 pointer" >{language === 'de' ? 'Datenschutz-Bestimmungen' : 'Privacy policy'}</span></Link>
                             <span className="me-2">|</span>
-                            <Link className='text-dark px-2' style={{ textDecoration: 'none' }} href='/widerrufsbelehrung'><span className="me-2 pointer" >{language === 'de' ? 'Widerrufsrecht' : 'Right of withdrawal'}</span></Link>
+                            <Link className='text-white px-2' style={{ textDecoration: 'none' }} href='/widerrufsbelehrung'><span className="me-2 pointer" >{language === 'de' ? 'Widerrufsrecht' : 'Right of withdrawal'}</span></Link>
                         </div>
                     </div>
                 </div>

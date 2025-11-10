@@ -343,20 +343,26 @@ export default function CheckoutAppointment() {
     return (
 
 
-        <section className=" min-vh-100" >
+        <section className="bg-dark  text-white min-vh-100" >
             {isOpen && <Popup openState={isOpen} closeAction={() => setIsOpen(false)} label={'Anmeldung'}>
                 <AuthForm closeAction={() => setIsOpen(false)} />
             </Popup>}
 
 
             <div className="container-fluid container-padding container-lg " style={{ paddingBottom: 50 }}>
-                <div className="row justify-content-center align-items-start">
+                <motion.div
+                    layout
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -30 }}
+                    transition={{ duration: 0.4 }}
+                    className="row justify-content-center align-items-start gy-3">
 
 
                     <div className="col-12">
                         <div className="py-4 ">
                             <div className="d-flex justify-content-start py-2 align-items-center pointer" onClick={() => router.back()}>
-                                <div className="me-2"><IoArrowBack size={20} color="#000" /></div>
+                                <div className="me-2"><IoArrowBack size={20} color="#fff" /></div>
                                 <span><u>Zurück</u></span>
                             </div>
                             <h4><strong>Online Termin vereinbaren</strong></h4>
@@ -366,7 +372,7 @@ export default function CheckoutAppointment() {
 
                     <div className="col-12 col-md-8  " >
 
-                        <div className="border border-md d-flex flex-column rounded rounded-3 p-3 bg-white">
+                        <div className="border border-md d-flex flex-column rounded rounded-3 p-3 bg-darki">
                             <span className="" style={{ fontSize: '1.2em', fontWeight: 500 }}>Als Gast buchen</span>
                             <span className="" style={{ fontSize: '1em', fontWeight: 500 }}>Du hast bereits einen Account? <span className="text-primary pointer" onClick={() => setIsOpen(true)} ><u>Anmelden</u></span> oder <span onClick={() => setIsOpen(true)} className="text-primary pointer"><u>Registrieren</u></span></span>
 
@@ -382,7 +388,7 @@ export default function CheckoutAppointment() {
                         </div>
 
 
-                        <div className="border border-md  bg-white rounded mt-5 rounded-3 p-3">
+                        <div className="border border-md  bg-darki rounded mt-5 rounded-3 p-3">
                             <div className="d-flex justify-content-between align-items-center">
                                 <div>
                                     <span className="" style={{ fontSize: '1.2em', fontWeight: 500 }}>Zahlung</span>
@@ -395,7 +401,7 @@ export default function CheckoutAppointment() {
 
 
                             <div
-                                className="mt-2 d-flex align-items-center border p-3 py-4 rounded-3 grey-hover w-100"
+                                className="mt-2 d-flex align-items-center border p-3 py-4 rounded-3 bg-darki w-100"
                                 onClick={() => {
                                     setOrder((ps) => ({
                                         ...ps,
@@ -478,8 +484,8 @@ export default function CheckoutAppointment() {
 
                         {/* {user?.auth ? <span>eingeloggt als: {user.firstName} {user.lastName} <button className="btn btn-danger" onClick={() => logout()}>Abmelden</button></span> : <Login />} */}
                     </div>
-                    <div className={` col-md-4  ${isOpen ? '' : ' sticky-top '}`} style={{ top: 80 }}>
-                        <div className="d-flex flex-column justify-content-start align-items-start gap-2 p-3 p-md-5   bg-white shadow shadow-md rounded rounded-3  " style={{ borderTop: '5px solid black', marginTop: '20px', fontSize: 13 }}>
+                    <div className={` col-md-4  ${isOpen ? '' : ' sticky-top '}`} style={{}}>
+                        <div className="d-flex flex-column justify-content-start align-items-start gap-2 p-3 p-md-5   bg-darki shadow shadow-md rounded rounded-3  " style={{ borderTop: '5px solid black', fontSize: 13 }}>
                             <h3 className="py-2" ><strong>Ihre Termindetails</strong></h3>
                             <div className="d-flex flex-row justify-content-start align-items-center">
                                 <div className="me-3 "> <PiBuildingThin size={25} /> </div>
@@ -510,11 +516,11 @@ export default function CheckoutAppointment() {
                                 </div>
                             </div>
                         </div>
-                        {order.paymentmethod === 'invoice' && <button className="btn btn-dark p-2 w-100 mt-2 " onClick={() => loading ? null : placeOrder()}>{loading ? <span className="spinner spinner-border"></span> : 'Termin buchen'}</button>}
+                        {order.paymentmethod === 'invoice' && <button className="btn btn-color1 p-2 w-100 mt-2 " onClick={() => loading ? null : placeOrder()}>{loading ? <span className="spinner spinner-border"></span> : 'Termin buchen'}</button>}
                         {error === 803 && <span className="text-danger">Der Termin wurde bereits vergeben. Bitte wählen Sie einen anderen</span>}
                         {error === 401 && <span className="text-danger">Bitte melden Sie sich mit Ihrem Benutzerkonto an.</span>}
                     </div>
-                </div>
+                </motion.div>
 
             </div>
         </section >
@@ -525,7 +531,7 @@ export default function CheckoutAppointment() {
 
 const Profile = ({ user, order, setOrder }) => {
     return (
-        <div className="col-12  d-flex flex-row justify-content-between align-items-center bg-white shadow shadow-md grey-hover rounded rounded-3 p-3 py-3 hover-border " style={{ fontSize: 13 }}
+        <div className="col-12  d-flex flex-row justify-content-between align-items-center bg-darki shadow shadow-md grey-hover rounded rounded-3 p-3 py-3 hover-border " style={{ fontSize: 13 }}
             onClick={(e) => setOrder(ps => ({ ...ps, user: { ...user } }))}
         >
             <div className="d-flex justify-content-start align-items-center ">

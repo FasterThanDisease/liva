@@ -1,6 +1,17 @@
 @use './utils';
 @use './variables.scss';
 @use './header.module';
+@use './card';
+@use './carousel';
+@use './signature';
+@use './skeleton';
+@use './slider';
+@use './tabbar';
+@use './hero';
+@use './unique';
+@use './toaster';
+@use './animations';
+
 
 $color1: #ecdf97;
 $color2: #333;
@@ -223,11 +234,12 @@ $font-base; // 700
 }
 
 .bg-dark {
-  background-color: #171717
+  background-color: #171717;
+  color: white;
 }
 
 .bg-darki {
-
+  color: white;
   background-color: #525252
 }
 

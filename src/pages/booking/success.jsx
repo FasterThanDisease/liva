@@ -7,17 +7,26 @@ import dynamic from "next/dynamic";
 const Map = dynamic(() => import("../../components/assets/map"), { ssr: false });
 import QRCode from "qrcode";
 import { gsap } from "gsap";
+import { useRouter } from "next/router";
 
 export default function Successappointment({ appointment, tenant, service }) {
     const [qrcodeUrl, setQrcodeUrl] = useState("");
     const [showContent, setShowContent] = useState(false);
-
+    const router = useRouter();
     const circleRef = useRef(null);
     const checkRef = useRef(null);
     const morphContainer = useRef(null);
     const contentRef = useRef(null);
 
+    const start = new Date(appointment.startTime.replace(" ", "T"));
+    const end = new Date(appointment.endTime);
 
+    const formatUTC = (date) =>
+        date.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+
+    const googleDates = `${formatUTC(start)}/${formatUTC(end)}`;
+
+    const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Termin bei ${tenant.name}&dates=${googleDates}&details=Termin+bei+${tenant.name}+mit+${appointment.order.ordererName}&location=${encodeURIComponent(`${tenant.address}, ${tenant.zipCode} ${tenant.city}`)}`;
 
     useEffect(() => {
         if (!appointment || !tenant) return;
@@ -30,7 +39,7 @@ export default function Successappointment({ appointment, tenant, service }) {
 
         const googleDates = `${formatUTC(start)}/${formatUTC(end)}`;
 
-        const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Termine bei ${tenant.name}&dates=${googleDates}&details=Termin+bei+${tenant.name}+mit+${appointment.order.ordererName}&location=${encodeURIComponent(`${tenant.address}, ${tenant.zipCode} ${tenant.city}`)}`;
+        const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=Termin bei ${tenant.name}&dates=${googleDates}&details=Termin+bei+${tenant.name}+mit+${appointment.order.ordererName}&location=${encodeURIComponent(`${tenant.address}, ${tenant.zipCode} ${tenant.city}`)}`;
 
         QRCode.toDataURL(calendarUrl)
             .then(setQrcodeUrl)
@@ -165,6 +174,11 @@ export default function Successappointment({ appointment, tenant, service }) {
                                     style={{ objectFit: "cover" }}
                                 />
                             )}
+                        </div>
+
+                        <div className="py-4 mb-5 text-center d-flex flex-column justify-content-center align-items-center d-md-none">
+                            <span>Klicken Sie auf folgenden Button und fügen Sie bequem den Termin ihrem Kalender hinzu.</span>
+                            <button className="btn btn-color1" onClick={() => router.push(calendarUrl)}>Termin hinzufügen</button>
                         </div>
 
                         <div className="ticket-card">

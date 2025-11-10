@@ -1,0 +1,74 @@
+.ticket-card {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #dee2e6;
+    overflow: hidden;
+    position: relative;
+    padding: 1rem 1.25rem;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+    }
+
+    // Ticket-Loch-Effekt an den Seiten
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        background: #f8f9fa;
+        border-radius: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &::before {
+        left: -9px;
+    }
+
+    &::after {
+        right: -9px;
+    }
+
+    .ticket-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h6 {
+            color: #343a40;
+            font-size: 1rem;
+        }
+
+        .badge {
+            font-size: 0.75rem;
+            text-transform: capitalize;
+        }
+    }
+
+    .ticket-divider {
+        border: none;
+        border-top: 2px dotted #dee2e6;
+        margin: 0.75rem 0;
+    }
+
+    .ticket-body {
+        font-size: 0.9rem;
+        line-height: 1.4;
+
+        p {
+            color: #212529;
+        }
+
+        ul {
+            margin-top: 0.5rem;
+
+            li {
+                margin-bottom: 0.25rem;
+            }
+        }
+    }
+}

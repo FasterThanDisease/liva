@@ -1,0 +1,110 @@
+.slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+    @media (min-width: 768px) {
+        border-radius: 16px;
+    }
+
+    box-shadow: 0 8px 24px rgba(16, 24, 40, 0.06);
+    margin-bottom: 2rem;
+
+    /* important for touch gestures:
+       allow vertical scrolling (pan-y) by the browser but keep horizontal gestures for the slider */
+    touch-action: pan-y;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.sliderTrack {
+    display: flex;
+    will-change: transform;
+    transition: transform 0.45s cubic-bezier(.22, .9, .35, 1);
+}
+
+.slide {
+    min-width: 100%;
+    height: 360px;
+    /* anpassbar */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #fafafa, #fff);
+    user-select: none;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+        pointer-events: none;
+        user-drag: none;
+        -webkit-user-drag: none;
+    }
+}
+
+/* Controls (round buttons) */
+.control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    border: none;
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    /* makes it perfectly round */
+    font-size: 20px;
+    box-shadow: 0 6px 18px rgba(16, 24, 40, 0.08);
+    cursor: pointer;
+    transition: transform 0.12s ease, background 0.12s ease;
+    user-select: none;
+}
+
+.control:active {
+    transform: translateY(-50%) scale(0.97);
+}
+
+.prev {
+    left: 12px;
+}
+
+.next {
+    right: 12px;
+}
+
+/* Indicators */
+.indicators {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+    z-index: 5;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.7);
+    border: none;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.dot:hover {
+    transform: scale(1.2);
+}
+
+.active {
+    background: #ff385c;
+    /* oder eine variable / theme color */
+    box-shadow: 0 4px 10px rgba(255, 56, 92, 0.14);
+}

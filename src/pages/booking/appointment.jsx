@@ -80,20 +80,26 @@ export default function Index({ tenantId }) {
     console.log(order)
 
     return (
-        <main>
-            <section className="container-padding">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-12">
-                            <h3><span style={{ fontSize: '', fontWeight: 600 }}>Termin auswählen</span></h3>
-                        </div>
-                        <div className="col-12">
+        <main className="bg-dark text-white">
 
-                            <Calendar order={order} setOrder={setOrder} data={data} loading={loading} refetch={fetchAppointments} currentDate={currentDate} setCurrentDate={setCurrentDate} />
-                        </div>
+            <div className="container-fluid container-md" style={{ paddingBottom: 100, paddingTop: 50 }}>
+                <motion.div
+                    layout
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -30 }}
+                    transition={{ duration: 0.4 }}
+                    className="row">
+                    <div className="col-12">
+                        <h3><span style={{ fontSize: '', fontWeight: 600 }}>Termin auswählen</span></h3>
                     </div>
-                </div>
-            </section>
+                    <div className="col-12">
+
+                        <Calendar order={order} setOrder={setOrder} data={data} loading={loading} refetch={fetchAppointments} currentDate={currentDate} setCurrentDate={setCurrentDate} />
+                    </div>
+                </motion.div>
+            </div>
+
         </main>
     )
 }
@@ -219,7 +225,7 @@ export function Calendar({ supplier, order, setOrder, data, loading, refetch, cu
 
     return (
         <>
-            <div className=" " style={{ fontSize: 13 }}>
+            <div className="bg-darki" style={{ fontSize: 13 }}>
                 {<div className="d-flex justify-content-between  align-items-center " >
                     <div className="d-flex flex-grow-1 justify-content-start">
                         <div
@@ -272,7 +278,7 @@ export function Calendar({ supplier, order, setOrder, data, loading, refetch, cu
                                                 const slots = timeSlotsByDate[date];
                                                 const slot = slots.find(slot => slot.time === time);
                                                 const isDisabled = !slot || isPastSlot(date, slot.time) || slot.isfree === 0;
-                                                const buttonStyle = { backgroundColor: '#3f3f46', fontSize: 13, color: '#fff' }
+                                                const buttonStyle = { backgroundColor: '#ecdf97', fontSize: 13, color: '#fff' }
 
                                                 return (
                                                     <td

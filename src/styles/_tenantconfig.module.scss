@@ -1,0 +1,245 @@
+@use "sass:color";
+
+$primary: #ff385c;
+$secondary: #008489;
+$text-muted: #6b7280;
+$background: #fafafa;
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 0.5rem;
+}
+
+.subtle {
+    color: $text-muted;
+    font-size: 0.95rem;
+}
+
+.sectionTitle {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+// Buttons
+.primaryBtn {
+    background: $primary;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 9999px;
+    font-weight: 600;
+    transition: background 0.2s ease;
+
+    &:hover {
+        background: color.adjust($primary, $lightness: -5%);
+    }
+}
+
+.secondaryBtn {
+    background: white;
+    color: $primary;
+    border: 2px solid $primary;
+    border-radius: 9999px;
+    padding: 0.5rem 1.25rem;
+    font-weight: 600;
+    width: 100%;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background: $primary;
+        color: white;
+    }
+}
+
+// Öffnungszeiten
+.cardList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.cardItem {
+    background: white;
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.95rem;
+}
+
+// Services
+.serviceCard {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    }
+}
+
+.serviceTitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+}
+
+.price {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: $secondary;
+    display: flex;
+    align-items: center;
+}
+
+.vat {
+    font-size: 0.75rem;
+    color: $text-muted;
+    margin-left: 0.5rem;
+}
+
+
+.reviewCard {
+    background: white;
+    border-radius: 16px;
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
+}
+
+.reviewHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ratingStars {
+    display: flex;
+    gap: 0.15rem;
+    font-size: 1.1rem;
+}
+
+.comment {
+    font-style: italic;
+    color: #333;
+    line-height: 1.4;
+}
+
+.reviewFooter {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 0.85rem;
+    color: $text-muted;
+}
+
+
+.filterBox {
+    background: white;
+    border-radius: 16px;
+    padding: 1.25rem 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.filterTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.25rem;
+}
+
+.filterList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filterItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    padding: 0.4rem 0.6rem;
+    border-radius: 8px;
+    transition: background 0.15s ease;
+
+    &:hover {
+        background: #f8f8f8;
+    }
+
+    input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        accent-color: $primary;
+        cursor: pointer;
+    }
+}
+
+.starsRow {
+    display: flex;
+    gap: 0.15rem;
+}
+
+
+.reviewFormContainer {
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    margin-top: 2rem;
+}
+
+.reviewForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.starSelect {
+    display: flex;
+    gap: 0.4rem;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.textarea {
+    width: 100%;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    resize: vertical;
+    font-family: inherit;
+    line-height: 1.4;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+    &:focus {
+        outline: none;
+        border-color: $primary;
+        box-shadow: 0 0 0 3px rgba($primary, 0.15);
+    }
+}
+
+.charCount {
+    text-align: right;
+    font-size: 0.85rem;
+    color: $text-muted;
+}

@@ -159,7 +159,7 @@ export default function Home({ tenantConfig, services, staff, tenant }) {
               <div className="col-12 d-flex flex-column justify-content-center  align-items-center text-white mb-4 mb-md-0">
                 <h1 className="display-4 fw-bold ">Willkommen bei Liva</h1>
                 <div className="d-flex justify-content-center align-items-center gap-2 py-3">
-                  <button className="btn btn-color1" style={{ letterSpacing: '2px' }}>ONLINE BUCHEN</button>
+                  <Link href={'/booking'} style={{ textDecoration: 'none' }}> <button className="btn btn-color1" style={{ letterSpacing: '2px' }}>ONLINE BUCHEN</button></Link>
                   <Link href={'tel:+4956134914'} style={{ textDecoration: 'none' }}><button className="btn btn-color1" style={{ letterSpacing: '2px' }}>ODER ANRUFEN</button></Link>
 
                 </div>
@@ -202,39 +202,44 @@ export default function Home({ tenantConfig, services, staff, tenant }) {
 
         <section id="kontakt">
           <div className="container-fluid bg-light">
-            <div className="row justify-content-center align-items-center p-0">
+            <div className="row justify-content-center align-items-stretch p-0">
               {/* Kontaktinfo */}
-              <div className="col-12 col-md-6 p-0 d-flex flex-column justify-content-center align-items-center">
-                <h3 className="color3 display-3" style={{ fontSize: '4em', fontWeight: 500 }}>Kontaktiere uns</h3>
 
-                <div className="mt-5 text-center text-md-start">
-                  <p className="py-3">Wir sind gern für dich da.</p>
-                  <p className="text-secondary fs-5">
-                    Wir schätzen unsere Kunden sehr und freuen uns, dass du unsere Website besuchst. Was können wir für dich tun?
-                  </p>
+              <div className="col-12 col-md-6 p-5 d-flex flex-column justify-content-center align-items-center">
+                <div className="container">
+                  <div className="row  justify-content-center align-items-center p-">
+                    <h3 className="color3 display-3" style={{ fontSize: '4em', fontWeight: 500 }}>Kontaktiere uns</h3>
 
-                  <p className="fs-5">Liva Hairdresser & Barber</p>
-                  <p className="text-secondary fs-5">Wilhelmshöher Allee 185, 34121 Kassel, Germany</p>
+                    <div className="mt-5 text-center text-md-start">
+                      <p className="py-3">Wir sind gern für dich da.</p>
+                      <p className="text-secondary fs-5">
+                        Wir schätzen unsere Kunden sehr und freuen uns, dass du unsere Website besuchst. Was können wir für dich tun?
+                      </p>
 
-                  <p className="fs-5 me-2">Öffnungszeiten</p>
-                  <div className="pointer" onClick={() => setOpen(!open)}>
-                    {open ? (
-                      <div className="d-flex flex-column align-items-start">
-                        {days.map((day, i) => (
-                          <span
-                            key={i}
-                            className={`fs-5 ${((new Date().getDay() + 6) % 7 === i) ? 'color1' : ''}`}
-                          >
-                            {weeknames[i]} - {day ?? 'geschlossen'}
-                          </span>
-                        ))}
+                      <p className="fs-5">Liva Hairdresser & Barber</p>
+                      <p className="text-secondary fs-5">Wilhelmshöher Allee 185, 34121 Kassel, Germany</p>
+
+                      <p className="fs-5 me-2">Öffnungszeiten</p>
+                      <div className="pointer" onClick={() => setOpen(!open)}>
+                        {open ? (
+                          <div className="d-flex flex-column align-items-start">
+                            {days.map((day, i) => (
+                              <span
+                                key={i}
+                                className={`fs-5 ${((new Date().getDay() + 6) % 7 === i) ? 'color1' : ''}`}
+                              >
+                                {weeknames[i]} - {day ?? 'geschlossen'}
+                              </span>
+                            ))}
+                          </div>
+                        ) : (
+                          <div className="d-flex align-items-center">
+                            <p className="me-2 mb-0">Heute geöffnet:</p>
+                            <span className="fs-5">{days[(new Date().getDay() + 6) % 7]}</span>
+                          </div>
+                        )}
                       </div>
-                    ) : (
-                      <div className="d-flex align-items-center">
-                        <p className="me-2 mb-0">Heute geöffnet:</p>
-                        <span className="fs-5">{days[(new Date().getDay() + 6) % 7]}</span>
-                      </div>
-                    )}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -250,7 +255,6 @@ export default function Home({ tenantConfig, services, staff, tenant }) {
                     title="Liva Hairdresser & Barber Standort"
                   ></iframe>
                 </div>
-
               </div>
             </div>
           </div>

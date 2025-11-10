@@ -1,0 +1,14 @@
+.hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.2),
+            rgba(0, 0, 0, 0.2)), url('/hero-tms.webp') no-repeat center center;
+    background-size: cover;
+    background-position: center top;
+    color: #fff;
+
+    h1,
+    p {
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+
+}

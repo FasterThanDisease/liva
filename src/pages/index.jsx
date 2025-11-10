@@ -158,7 +158,7 @@ export default function Home({ tenantConfig, services, staff, tenant }) {
 
               <div className="col-12 d-flex flex-column justify-content-center  align-items-center text-white mb-4 mb-md-0">
                 <h1 className="display-4 fw-bold ">Willkommen bei Liva</h1>
-                <div className="d-flex justify-content-center align-items-center gap-2 py-3">
+                <div className="d-flex flex-column flex-md-row  justify-content-center align-items-center gap-2 py-3">
                   <Link href={'/booking'} style={{ textDecoration: 'none' }}> <button className="btn btn-color1" style={{ letterSpacing: '2px' }}>ONLINE BUCHEN</button></Link>
                   <Link href={'tel:+4956134914'} style={{ textDecoration: 'none' }}><button className="btn btn-color1" style={{ letterSpacing: '2px' }}>ODER ANRUFEN</button></Link>
 

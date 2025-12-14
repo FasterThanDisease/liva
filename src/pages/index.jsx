@@ -146,6 +146,7 @@ export default function Home({ tenantConfig, services, staff, tenant }) {
       </Head>
 
       <main>
+
         <section className="hero d-flex align-items-center position-relative " style={{ minHeight: '75dvh' }}>
           <Image className="position-absolute" priority={true} src="/logo.webp" alt="Liva Hairdress Logo" width={313} height={188} style={{ maxHeight: '100px', maxWidth: '100px', objectFit: 'cover', objectPosition: 'center center', top: 50, left: 100 }} />
           {/* <Link scroll={false} href='#section1'>

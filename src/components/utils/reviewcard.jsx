@@ -6,9 +6,9 @@ export default function Reviewcard({ name, text }) {
             <div className="g-review-head">
                 <div className="g-avatar"><img src="https://placehold.co/600x400" alt={`Placeholder-Image Profile-Image-${name}`} /></div>
                 <div className="g-meta">
-                    <div className="g-author">{name}</div>
+                    <div className="g-author text-start">{name}</div>
                     <div className="g-subline">
-                        <span>Local Guide</span><span className="g-dot"></span><span>vor 2 Wochen</span>
+                        <span className="g-dot"></span><span>vor 2 Wochen</span>
                     </div>
                 </div>
                 <div className="g-source"><span className="g-google-mark"></span>Google</div>

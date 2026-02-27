@@ -382,8 +382,8 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
                 </p>
               </div>
 
-              <div className="col-12 col-md-6 mt-3 p-5 d-flex justify-content-center">
-                <img className="" width={'100%'} src="/img/barbershop-haircut.webp" alt="Liva Haidress Salon - Nahaufnahme Haarschere" style={{ objectFit: 'cover', objectPosition: 'center', borderRadius: '50px' }} />
+              <div className="col-12 col-md-6 mt-3 p-md-5 d-flex justify-content-center">
+                <img className="" width={'100%'} height={400} src="/img/barbershop-haircut.webp" alt="Liva Haidress Salon - Nahaufnahme Haarschere" style={{ objectFit: 'cover', objectPosition: 'center', borderRadius: '50px' }} />
               </div>
               <div className="col-12 mt-5">
                 <p>Im Mittelpunkt steht ein freundliches und professionelles Team, das Wert auf persönlichen Umgang legt. Jeder Kunde wird ernst genommen und individuell beraten, ohne Zeitdruck oder Hektik. Gespräche entstehen ganz natürlich – ob man sich austauschen möchte oder lieber entspannen will, bleibt jedem selbst überlassen.</p>
@@ -508,10 +508,10 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
           <div className="container-fluid container-md">
             <div className="row justify-content-center align-items-center">
               <div className="col-12">
-                <h3 className="color3" style={{ fontSize: '4em', fontWeight: 500 }}>Entdecke unsere neusten Styles für deinen perfekten Look </h3>
+                <h3 className="color3" style={{ fontSize: '4em', fontWeight: 500 }}>Vernetze dich mit uns</h3>
               </div>
               {instaPosts.map((k, i) => (
-                <div className="col-6 col-md-4">
+                <div className="col-12 col-md-4 d-flex flex-column justify-content-center align-items-center">
                   <InstagramEmbed key={i} url={k.instaLink} width={328} />
                 </div>
               ))}

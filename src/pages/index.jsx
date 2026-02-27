@@ -2,9 +2,13 @@ import React, { useState, useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import Contactinformation from "@/components/utils/contactinformation";
 import { RxMinusCircled } from "react-icons/rx";
-
-
+import { InstagramEmbed } from "react-social-media-embed";
+import GoogleBadge from "@/components/utils/googlebadge";
+import Reviewcard from "@/components/utils/reviewcard";
+import { CiClock2 } from "react-icons/ci";
+import { IoLocationOutline, IoCallOutline } from "react-icons/io5";
 
 const proposal = [
   {
@@ -24,6 +28,32 @@ const proposal = [
   }
 ]
 
+
+export const demoTestimonials = [
+  {
+    name: "Fabian Hüther",
+    text: `5 Sterne
+  Ich bin absolut begeistert vom Friseur Liva! Trotz später Uhrzeit wurde ich ganz unkompliziert und freundlich ohne Termin noch drangenommen – das ist heutzutage wirklich nicht selbstverständlich. Der Haarschnitt war genau so, wie ich es mir vorgestellt habe: präzise, akribisch und mit viel Liebe zum Detail umgesetzt. Man nimmt sich hier Zeit, hört zu und arbeitet wirklich kundenorientiert. Dazu gab es noch einen richtig leckeren Kaffee – kleine Geste, große Wirkung! Rundum empfehlenswert – ich komme definitiv wieder.`
+  },
+  {
+    name: "Nicole",
+    text: "Mein erster Termin bei Olivia heute – und ich bin rundum happy! Tolle Beratung, perfekter Schnitt und wunderschöne Highlights mit Gloss, inklusive Styling. Absolut empfehlenswert, gerne wieder!"
+  },
+  {
+    name: "Jacob",
+    text: `Absolut empfehlenswert!
+Ein großartiger Friseursalon mit sehr freundlichem und kompetentem Team. Die Beratung ist ehrlich und professionell, auf Wünsche wird individuell eingegangen. Das Ergebnis ist immer zufriedenstellend – präzise geschnitten und top gestylt.`
+  },
+  {
+    name: "Björn",
+    text: "Liva ist einfach top! Meine zwei Kinder und ich gehen regelmäßig zum Salon zu Hasan und sind jedes Mal super zufrieden. Er ist immer freundlich, zuverlässig und macht seine Arbeit mit ganz viel Herz. Der Service ist klasse – absolut empfehlenswert!“"
+  },
+  {
+    name: "Nikodem",
+    text: "Taperfade Profis in Kassel! Kann ich nur weiterempfehlen! Habe lange nach einem Friseur gesucht, bei Liva bin ich endlich fündig geworden."
+  },
+];
+
 const days = [
   null,
   '09:00 - 19:00',
@@ -39,10 +69,36 @@ const weeknames = [
   'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa', 'So'
 ]
 
-export default function Home({ tenantConfig, services, staff, tenant }) {
+
+
+
+export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
 
   const [open, setOpen] = useState(false)
   const [open2, setOpen2] = useState(false);
+
+
+  const [services, setServices] = useState([
+    {
+      categoryName: 'Haarschnitte',
+      active: 1,
+      servicelines: [{ name: 'klassischer Haarschnitt', price: 23.00 }, { name: 'Traditionelle Bart Nassrasur', price: 18.00 }, { name: 'Bart stutzen', price: 18.00 }, { name: 'Beratung, Haarschnitt & Bart stutzen', price: 38.00 }, { name: 'Dauerwelle', price: 85.00 }]
+    },
+    { active: 0, categoryName: 'Haarentfernung', servicelines: [{ name: 'Waxing - Wangen', price: 15.00 }, { name: 'Waxing - Ohren', price: 5.00 }, { name: 'Waxing - Nase', price: 5.00 }, { name: 'Ohrenhaare verbrennen', price: 3.00 }] },
+    { active: 0, categoryName: 'Gesichtspflege', servicelines: [{ name: 'Wimpern färben', price: 12.00 }, { name: 'Augenbrauen färben & zupfen', price: 15.00 }, { name: 'Augenbrauen zupfen', price: 8.00 }] }
+    ,]
+  )
+
+
+  const handleServiceClick = (index) => {
+    setServices((prevServices) =>
+      prevServices.map((service, i) => ({
+        ...service,
+        active: i === index ? 1 : 0,
+      }))
+    );
+  };
+
 
 
   return (
@@ -110,6 +166,8 @@ export default function Home({ tenantConfig, services, staff, tenant }) {
         <meta name="twitter:description" content="Trendige Haarschnitte, Bartpflege und exklusive Barber-Dienstleistungen in Kassel – Jetzt Termin bei Liva buchen!" />
         <meta name="twitter:image" content="/logo.webp" />
 
+
+
         {/* JSON-LD Structured Data */}
         <script
           type="application/ld+json"
@@ -147,27 +205,131 @@ export default function Home({ tenantConfig, services, staff, tenant }) {
 
       <main>
 
-        <section className="hero d-flex align-items-center position-relative " style={{ minHeight: '75dvh' }}>
-          <Image className="position-absolute" priority={true} src="/logo.webp" alt="Liva Hairdress Logo" width={313} height={188} style={{ maxHeight: '100px', maxWidth: '100px', objectFit: 'cover', objectPosition: 'center center', top: 50, left: 100 }} />
+        <section className="hero d-flex align-items-center position-relative " style={{ minHeight: '100dvh', zIndex: 1 }}>
+          <div className="position-absolute" style={{ right: 20, bottom: 20, zIndex: 2 }}>
+            <GoogleBadge avg={'5,0'} count={'239'} />
+          </div>
+          <Image className="position-absolute" priority={true} src="/logo.webp" alt="Liva Hairdress Logo" width={313} height={200} style={{ maxHeight: '100px', maxWidth: '100px', objectFit: 'cover', objectPosition: 'center center', top: 50, left: 100 }} />
+
+          <div className="position-absolute d-none d-xl-block w-75" style={{ zIndex: 3, bottom: 100, left: '15%' }}>
+
+            <div className="d-flex w-100 justify-content-center align-items-center">
+              <div className="flex-grow-1" style={{ flex: 4, borderRight: '3px solid white' }}>
+                <div className=" p-4 d-flex flex-column  h-100  justify-content-center align-items-center text-white " >
+                  <div className="mb-4" style={{ flex: 1 }}>
+                    <IoCallOutline size={50} color="white" />
+                  </div>
+                  <div className="text-center  text-white ms-2" style={{ flex: 9 }}>
+                    <span>Rufen Sie uns gerne an:</span>
+                    <br />
+                    <Link href="tel:+4956134914" className="text-dark" style={{ textDecoration: 'none' }} ><span className="text-white pointer" style={{ fontWeight: 400, fontSize: '1.1em' }}>(+49)561 34914</span></Link>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex-grow-1" style={{ flex: 4, borderRight: '3px solid white' }}>
+                <div className=" p-4 d-flex flex-column  h-100  justify-content-center align-items-center text-white " >
+                  <div className="mb-4" style={{ flex: 1 }}>
+                    <IoLocationOutline size={50} color="white" />
+                  </div>
+                  <div className="text-center  text-white ms-2" style={{ flex: 9 }}>
+                    <span>Besuchen Sie uns vort Ort:</span>
+                    <br />
+                    <span style={{ fontWeight: 400, fontSize: '1.1em' }} >Wilhelmshöher Allee 185<br />
+                      34121 Kassel</span>
+                  </div>
+                </div>
+              </div>
+
+
+              <div className="flex-grow-1" style={{ flex: 4 }}>
+                <div className=" p-4 d-flex flex-column  h-100  justify-content-center align-items-center text-white " >
+                  <div className="mb-4" style={{ flex: 1 }}>
+                    <CiClock2 size={50} color="white" />
+                  </div>
+                  <div className="text-center  d-flex flex-column text-white ms-2" style={{ flex: 9 }}>
+                    <span>Di-Fr: 09:00 - 19:00</span>
+                    <span>Sa: 09:00 - 17:00</span>
+                    <span>So & Mo: geschlossen</span>
+
+                  </div>
+                </div>
+
+
+
+
+
+              </div>
+            </div>
+          </div>
           {/* <Link scroll={false} href='#section1'>
             <div className="position-absolute d-none d-md-block" style={{ left: '50%', bottom: 20 }}>
               <RxMinusCircled className="pointer hoveri" size={100} color="white" />
             </div>
           </Link> */}
-          <div className="container-fluid" style={{ marginTop: 100, paddingBottom: 50 }}>
+          <div className="container-fluid" style={{ marginTop: 100, paddingBottom: 50, zIndex: 1 }}>
             <div className="row gx-5 justify-content-center " >
 
               <div className="col-12 d-flex flex-column justify-content-center  align-items-center text-white mb-4 mb-md-0">
-                <h1 className="display-4 fw-bold ">Willkommen bei Liva</h1>
+                <h1 className="display-1 fw-bold ">Willkommen bei Liva</h1>
                 <div className="d-flex flex-column flex-md-row  justify-content-center align-items-center gap-2 py-3">
                   <Link href={'/booking'} style={{ textDecoration: 'none' }}> <button className="btn btn-color1" style={{ letterSpacing: '2px' }}>ONLINE BUCHEN</button></Link>
                   <Link href={'tel:+4956134914'} style={{ textDecoration: 'none' }}><button className="btn btn-color1" style={{ letterSpacing: '2px' }}>ODER ANRUFEN</button></Link>
-
                 </div>
               </div>
             </div >
           </div>
         </section>
+
+
+
+
+
+
+        <section className="bg-dark" style={{ paddingTop: 100, paddingBottom: 50 }}>
+          <div className="container-fluid container-md">
+            <div className="row justify-content-center align-items-center">
+              <div className="col-12 col-md-6 order-1 order-md-2 d-flex justify-content-center">
+                <img src="/img/salon.webp" width={'100%'} height={400} style={{ objectFit: 'cover' }} />
+              </div>
+              <div className="col-12 col-md-6 order-2 order-md-1">
+                <h3 className="color1">Liva Hairdress & Barber</h3>
+                <p className="mt-3">Bei Liva Hairdresser & Barber erwartet dich ein moderner Friseursalon in zentraler Lage auf der Wilhelmshöher Allee in Kassel. <br /> Der Salon ist leicht erreichbar und lässt sich ideal in den Alltag integrieren – egal ob vor der Arbeit, in der Mittagspause oder nach Feierabend. <br /> Termine können jederzeit bequem über die Online-Buchung vereinbart werden, ganz ohne Wartezeiten oder komplizierte Abläufe.</p>
+                <p className="mt-2">Wir freuen uns auf deinen Besuch</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <section className="bg-dark" style={{ paddingBottom: 50 }}>
+          <div className="container-fluid container-md">
+            <div className="row p-0">
+              <div className="col-12 col-md-6 p-0">
+                <img src="/img/babershop-utils.webp" alt="Friseur Utensilien Foto" height={700} width={'100%'} style={{ objectFit: 'cover' }} />
+              </div>
+              <div className="col-12 col-md-6 d-flex flex-column p-4">
+                <span>Angebote</span>
+                <h3>Unsere besten Frisuren zum bezahlbaren Preis</h3>
+                <p>Jeder Schnitt passend zu deinem Look. Unabhängig ob ein schneller Haarschnitt oder eine aufwendige Frisur. Das Team von Liva Hairdress & Barber passen sich individuell deinen Wünschen an. </p>
+                <div className="d-flex flex-wrap gap-2">
+                  {services.map((k, i) => (<button key={i} onClick={() => handleServiceClick(i)} className={`btn px-2 pointer text-dark ${k.active === 1 ? ' bg1 ' : ' text-dark bg-white '}`}>{k.categoryName}</button>))}
+                </div>
+
+                <div className="d-flex flex-column mt-4">
+                  {services.find((k) => k.active === 1).servicelines.map((k, i) => (
+                    <div key={i} className="d-flex justify-content-between px-2 py-2" style={{ borderBottom: '2px solid white' }}>
+                      <span style={{ fontSize: '1.1em', fontWeight: 500 }}>{k.name}</span>
+                      <span>{k.price.toFixed(2).replace('.', ',')} €</span>
+                    </div>
+                  ))}
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
 
 
         <section>
@@ -187,7 +349,7 @@ export default function Home({ tenantConfig, services, staff, tenant }) {
                           <img src={k.img} />
                         </picture>
                       </div>
-                      <h4 className="" style={{ fontSize: '1.5em' }}>{k.title}</h4>
+                      <h3 className="" style={{ fontSize: '1.5em' }}>{k.title}</h3>
                       <div className="p-3">
 
                         <p className="text-secondary" style={{ fontSize: '1.2em' }}>{k.text}</p>
@@ -201,9 +363,63 @@ export default function Home({ tenantConfig, services, staff, tenant }) {
         </section>
 
 
+        <section className="bg-dark text-white">
+          <div className="container-fluid container-md" style={{ paddingTop: 50, paddingBottom: 50 }}>
+            <div className="row justify-content-center align-items-center">
+              <div className="col-12 col-md-6 d-flex flex-column justify-content-start align-items-start gap-3">
+                <div>
+                  <h3>Liva Hairdresser & Barber </h3>
+                  <h3 className="color1">Kassel-Wilhelmshöhe</h3>
+                </div>
+
+
+                <p>
+                  Liva Hairdresser & Barber steht für Qualität, Stilbewusstsein und persönliche Beratung.
+                  Unser Salon auf der Wilhelmshöher Allee ist Anlaufpunkt für Kundinnen und Kunden aus ganz Kassel, die Wert auf professionelle Haarschnitte und gepflegte Looks legen.
+                </p>
+                <p>
+                  Mit Erfahrung, Leidenschaft und einem geschulten Blick für Details sorgen wir täglich dafür, dass sich unsere Kunden wohlfühlen – und den Salon mit einem Lächeln verlassen.
+                </p>
+              </div>
+
+              <div className="col-12 col-md-6 mt-3 p-5 d-flex justify-content-center">
+                <img className="" width={'100%'} src="/img/barbershop-haircut.webp" alt="Liva Haidress Salon - Nahaufnahme Haarschere" style={{ objectFit: 'cover', objectPosition: 'center', borderRadius: '50px' }} />
+              </div>
+              <div className="col-12 mt-5">
+                <p>Im Mittelpunkt steht ein freundliches und professionelles Team, das Wert auf persönlichen Umgang legt. Jeder Kunde wird ernst genommen und individuell beraten, ohne Zeitdruck oder Hektik. Gespräche entstehen ganz natürlich – ob man sich austauschen möchte oder lieber entspannen will, bleibt jedem selbst überlassen.</p>
+              </div>
+              <span className="py-3"><strong>Öffnungszeiten</strong></span>
+              <div className="col-12 mt-3 d-flex">
+                <div className="d-flex flex-column flex-md-row gap-5" style={{ flex: 8 }}>
+                  <div className="d-flex flex-column">
+                    <span className="color1">Di - Fr</span>
+                    <span>09:00 - 19:00</span>
+                  </div>
+                  <div className="d-flex flex-column">
+                    <span className="color1">Sa</span>
+                    <span>09:00 - 17:00</span>
+                  </div>
+                  <div className="d-flex flex-column">
+                    <span className="color1">So & Mo</span>
+                    <span>Geschlossen</span>
+                  </div>
+                </div>
+                <div style={{ flex: 4 }}>
+                  <button className="btn btn-color1">Termin Buchen</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </section>
+
+
+
+
+
         <section id="kontakt">
           <div className="container-fluid bg-light">
-            <div className="row justify-content-center align-items-stretch p-0">
+            <div className="row justify-content-center align-items-stretch ">
               {/* Kontaktinfo */}
 
               <div className="col-12 col-md-6 p-5 d-flex flex-column justify-content-center align-items-center">
@@ -262,12 +478,43 @@ export default function Home({ tenantConfig, services, staff, tenant }) {
         </section>
 
 
-        <section id="soziales">
+
+
+
+        <section id="soziales" style={{ paddingTop: 50, paddingBottom: 50 }}>
           <div className="container-fluid container-md">
             <div className="row justify-content-center align-items-center text-center">
               <div className="col-12 d-flex flex-column justify-content-center align-items-center">
-                <h3 className="color3" style={{ fontSize: '4em', fontWeight: 500 }} >Vernetze dich mit uns </h3>
+                <h3 className="color3" style={{ fontSize: '4em', fontWeight: 500 }} >Das sagen unsere Kunden über uns </h3>
               </div>
+
+              <div className="col-12">
+                <div className="masonry">
+                  {demoTestimonials.map((t, index) => (
+                    <Reviewcard
+                      key={index}
+                      name={t.name}
+                      text={t.text}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+        <section className="bg-lighti" style={{ paddingTop: 100, paddingBottom: 50 }}>
+          <div className="container-fluid container-md">
+            <div className="row justify-content-center align-items-center">
+              <div className="col-12">
+                <h3 className="color3" style={{ fontSize: '4em', fontWeight: 500 }}>Entdecke unsere neusten Styles für deinen perfekten Look </h3>
+              </div>
+              {instaPosts.map((k, i) => (
+                <div className="col-6 col-md-4">
+                  <InstagramEmbed key={i} url={k.instaLink} width={328} />
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -279,38 +526,55 @@ export default function Home({ tenantConfig, services, staff, tenant }) {
 
 
 
-export async function getStaticProps() {
-  const tenantId = 52;
+// export async function getStaticProps() {
+//   const tenantId = 52;
 
-  const tenantRes = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/appointments/gettenantbyid`,
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/json", "X-API-KEY": process.env.NEXT_PUBLIC_API_KEY },
-      body: JSON.stringify({ TenantId: tenantId.toString() }),
+//   const tenantRes = await fetch(
+//     `${process.env.NEXT_PUBLIC_API_URL}/appointments/gettenantbyid`,
+//     {
+//       method: "POST",
+//       headers: { "Content-Type": "application/json", "X-API-KEY": process.env.NEXT_PUBLIC_API_KEY },
+//       body: JSON.stringify({ TenantId: tenantId.toString() }),
+//     }
+//   );
+
+//   const tenant = await tenantRes.json();
+
+//   const servicesRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/appointments/getservices`, {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json", "X-API-KEY": process.env.NEXT_PUBLIC_API_KEY },
+//     body: JSON.stringify({ tenantId }),
+//   });
+//   const services = await servicesRes.json();
+
+//   const staffRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/appointments/getstaff`, {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json", "X-API-KEY": process.env.NEXT_PUBLIC_API_KEY },
+//     body: JSON.stringify({ tenantId }),
+//   });
+//   const staff = await staffRes.json();
+
+//   const tenantConfig = { id: tenantId, name: `Tenant ${tenantId}` };
+
+//   return {
+//     props: { tenantConfig: tenantConfig ?? null, services: services ?? null, staff: staff ?? null, tenant: tenant ?? null },
+//     revalidate: 60 * 60,
+//   };
+// }
+
+
+export async function getServerSideProps() {
+
+  const res = await fetch(`https://cdn.contentful.com/spaces/${process.env.NEXT_PUBLIC_CONTENTFUL_SPACEID}/entries?content_type=instaPost&order=-sys.createdAt&limit=20`, {
+    method: 'GET',
+    headers: {
+      Authorization: `Bearer ` + process.env.NEXT_PUBLIC_CONTENTFUL_TOKEN
     }
-  );
+  })
+  const data1 = await res.json()
+  let instaPosts = Array.from({ length: data1.items.length }, (k, i) => ({ ...data1.items[i].fields }))
 
-  const tenant = await tenantRes.json();
-
-  const servicesRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/appointments/getservices`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", "X-API-KEY": process.env.NEXT_PUBLIC_API_KEY },
-    body: JSON.stringify({ tenantId }),
-  });
-  const services = await servicesRes.json();
-
-  const staffRes = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/appointments/getstaff`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json", "X-API-KEY": process.env.NEXT_PUBLIC_API_KEY },
-    body: JSON.stringify({ tenantId }),
-  });
-  const staff = await staffRes.json();
-
-  const tenantConfig = { id: tenantId, name: `Tenant ${tenantId}` };
-
-  return {
-    props: { tenantConfig: tenantConfig ?? null, services: services ?? null, staff: staff ?? null, tenant: tenant ?? null },
-    revalidate: 60 * 60,
-  };
+  return { props: { instaPosts } }
 }
+
+

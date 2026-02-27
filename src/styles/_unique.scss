@@ -101,3 +101,113 @@ $color8: #fdf4ff;
         }
     }
 }
+
+
+/* Masonry wrapper (uses CSS columns) */
+.masonry {
+    column-gap: 1rem; // spacing between columns (Bootstrap-ish)
+}
+
+/* Responsive column count (align with Bootstrap breakpoints) */
+@media (min-width: 0) {
+
+    // xs
+    .masonry {
+        column-count: 1;
+    }
+}
+
+@media (min-width: 576px) {
+
+    // sm
+    .masonry {
+        column-count: 2;
+    }
+}
+
+@media (min-width: 992px) {
+
+    // lg
+    .masonry {
+        column-count: 3;
+    }
+}
+
+@media (min-width: 1200px) {
+
+    // xl
+    .masonry {
+        column-count: 4;
+    }
+}
+
+/* Each card must not break across columns */
+.masonry-item {
+    break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    margin-bottom: 1rem; // vertical spacing
+    display: inline-block;
+    width: 100%;
+}
+
+
+.ticket {
+    position: relative;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    max-width: 420px;
+    margin: 2rem auto;
+    font-family: 'Inter', sans-serif;
+
+    // seitliche Aussparungen
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 32px;
+        height: 32px;
+        background: #f2f2f2;
+        border-radius: 50%;
+        transform: translateY(-50%);
+    }
+
+    &::before {
+        left: -16px;
+    }
+
+    &::after {
+        right: -16px;
+    }
+
+    // gestrichelte Trennlinie
+    &__divider {
+        border-top: 2px dashed #ccc;
+        margin: 1.5rem 0;
+    }
+
+    // Header
+    &__header {
+        font-size: 1.25rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+    }
+
+    // Content
+    &__content {
+        font-size: 0.95rem;
+        color: #444;
+    }
+
+    // Footer
+    &__footer {
+        margin-top: 1.5rem;
+        font-size: 0.8rem;
+        color: #777;
+        display: flex;
+        justify-content: space-between;
+    }
+}

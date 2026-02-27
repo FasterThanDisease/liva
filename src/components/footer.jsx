@@ -18,7 +18,7 @@ export default function Footer() {
 
                 <div className="row justify-content-start justify-content-xl-start  ">
                     <div className="col-12 col-md-3 ">
-                        <h3><b>Links</b></h3>
+                        <h3>Links</h3>
                         <ul style={{ listStyle: "none", padding: 0 }}>
                             <li className="pointer text-dark"  ><Link className='text-white' style={{ textDecoration: 'none' }} href='/kontakt'><span className='hover-border pointer'>Kontakt</span></Link></li>
                             <li className="pointer text-dark"  ><Link className='text-white' style={{ textDecoration: 'none' }} href='/about'><span className='hover-border pointer'>Über uns</span></Link></li>
@@ -42,7 +42,7 @@ export default function Footer() {
 
                     <div className='col-12 col-md-3 '>
 
-                        <h3><b>Kontakt</b></h3>
+                        <h3>Kontakt</h3>
                         <ul style={{ listStyle: "none", padding: 0 }}>
                             <li className="pointer" ><Link className='text-white' href="mailto:sher_2323@hotmail.com" style={{ textDecoration: 'none' }}><span className='hover-border pointer'>sher_2323@hotmail.com</span></Link> </li>
                             <li className="pointer" ><span className='hover-border pointer'>Wilhelmshöher Allee 185</span> </li>

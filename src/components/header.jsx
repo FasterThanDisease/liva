@@ -8,6 +8,7 @@ import { IoIosArrowDown } from "react-icons/io";
 import Image from 'next/image';
 
 
+
 export default function Header() {
     const router = useRouter();
     const [isOpen2, setIsOpen2] = useState(false);
@@ -37,8 +38,9 @@ export default function Header() {
 
             <div className={` d-flex w-100 justify-content-center bg1 topbar ${hideTopBar ? 'hidden' : ''}`}>
                 <div className="d-flex justify-content-start align-items-center text-dark text-center py-3 " style={{ fontSize: '1.2em' }}>
+                    <span className='d-none d-md-block'> Auch ohne Termin - Jetzt anrufen:</span>
                     <span>
-                        Auch ohne Termin - Jetzt anrufen: <a href="tel:+4956134914" className="text-dark text-decoration-none pointer"><u>(+49) 561 349 14</u></a>
+                        <a href="tel:+4956134914" className="text-dark text-decoration-none pointer"><u>(+49) 561 349 14</u></a>
                     </span>
                 </div>
             </div>

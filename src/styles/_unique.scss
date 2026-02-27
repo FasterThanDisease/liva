@@ -211,3 +211,16 @@ $color8: #fdf4ff;
         justify-content: space-between;
     }
 }
+
+
+.divider {
+    padding: 10px 20px;
+
+    &::before {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 3px;
+        background-color: #ecdf97;
+    }
+}

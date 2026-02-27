@@ -211,14 +211,15 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
           </div>
           <Image className="position-absolute" priority={true} src="/logo.webp" alt="Liva Hairdress Logo" width={313} height={200} style={{ maxHeight: '100px', maxWidth: '100px', objectFit: 'cover', objectPosition: 'center center', top: 50, left: 100 }} />
 
-          <div className="position-absolute d-none  w-75" style={{ zIndex: 3, bottom: 100, left: '15%' }}>
+          <div className="position-absolute   w-75" style={{ zIndex: 3, bottom: 100, left: '15%' }}>
 
             <div className="d-flex w-100 justify-content-center align-items-center">
               <div className="flex-grow-1" style={{ flex: 4, borderRight: '3px solid white' }}>
                 <div className=" p-4 d-flex flex-column  h-100  justify-content-center align-items-center text-white " >
-                  <div className="mb-4" style={{ flex: 1 }}>
+                  <div className="" style={{ flex: 1 }}>
                     <IoCallOutline size={50} color="white" />
                   </div>
+                  <div className="divider mb-4" />
                   <div className="text-center  text-white ms-2" style={{ flex: 9 }}>
                     <span>Rufen Sie uns gerne an:</span>
                     <br />
@@ -227,11 +228,27 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
                 </div>
               </div>
 
-              <div className="flex-grow-1" style={{ flex: 4, borderRight: '3px solid white' }}>
+              <div className="flex-grow-1 d-none d-xl-block" style={{ flex: 4, borderRight: '3px solid white' }}>
                 <div className=" p-4 d-flex flex-column  h-100  justify-content-center align-items-center text-white " >
-                  <div className="mb-4" style={{ flex: 1 }}>
+                  <div className="" style={{ flex: 1 }}>
                     <IoLocationOutline size={50} color="white" />
                   </div>
+                  <div className="divider mb-4" />
+                  <div className="text-center  text-white ms-2" style={{ flex: 9 }}>
+                    <span>Besuchen Sie uns vort Ort:</span>
+                    <br />
+                    <span style={{ fontWeight: 400, fontSize: '1.1em' }} >Wilhelmshöher Allee 185<br />
+                      34121 Kassel</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex-grow-1 d-block d-xl-none" style={{ flex: 4 }}>
+                <div className=" p-4 d-flex flex-column  h-100  justify-content-center align-items-center text-white " >
+                  <div className="" style={{ flex: 1 }}>
+                    <IoLocationOutline size={50} color="white" />
+                  </div>
+                  <div className="divider mb-4" />
                   <div className="text-center  text-white ms-2" style={{ flex: 9 }}>
                     <span>Besuchen Sie uns vort Ort:</span>
                     <br />
@@ -242,11 +259,13 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
               </div>
 
 
-              <div className="flex-grow-1" style={{ flex: 4 }}>
+
+              <div className="flex-grow-1 d-none d-xl-block" style={{ flex: 4 }}>
                 <div className=" p-4 d-flex flex-column  h-100  justify-content-center align-items-center text-white " >
-                  <div className="mb-4" style={{ flex: 1 }}>
+                  <div className="" style={{ flex: 1 }}>
                     <CiClock2 size={50} color="white" />
                   </div>
+                  <div className="divider mb-4" />
                   <div className="text-center  d-flex flex-column text-white ms-2" style={{ flex: 9 }}>
                     <span>Di-Fr: 09:00 - 19:00</span>
                     <span>Sa: 09:00 - 17:00</span>
@@ -309,7 +328,10 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
                 <img src="/img/babershop-utils.webp" alt="Friseur Utensilien Foto" height={700} width={'100%'} style={{ objectFit: 'cover' }} />
               </div>
               <div className="col-12 col-md-6 d-flex flex-column p-4">
-                <span>Angebote</span>
+                <div className="d-flex justify-content-start align-items-center">
+                  <div className="divider me-3" />
+                  <span>Services</span>
+                </div>
                 <h3>Unsere besten Frisuren zum bezahlbaren Preis</h3>
                 <p>Jeder Schnitt passend zu deinem Look. Unabhängig ob ein schneller Haarschnitt oder eine aufwendige Frisur. Das Team von Liva Hairdress & Barber passen sich individuell deinen Wünschen an. </p>
                 <div className="d-flex flex-wrap gap-2">
@@ -349,7 +371,9 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
                           <img src={k.img} />
                         </picture>
                       </div>
+
                       <h3 className="" style={{ fontSize: '1.5em' }}>{k.title}</h3>
+                      <div className="divider" />
                       <div className="p-3">
 
                         <p className="text-secondary" style={{ fontSize: '1.2em' }}>{k.text}</p>

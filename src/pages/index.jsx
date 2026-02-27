@@ -211,7 +211,7 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
           </div>
           <Image className="position-absolute" priority={true} src="/logo.webp" alt="Liva Hairdress Logo" width={313} height={200} style={{ maxHeight: '100px', maxWidth: '100px', objectFit: 'cover', objectPosition: 'center center', top: 50, left: 100 }} />
 
-          <div className="position-absolute d-none d-xl-block w-75" style={{ zIndex: 3, bottom: 100, left: '15%' }}>
+          <div className="position-absolute d-none  w-75" style={{ zIndex: 3, bottom: 100, left: '15%' }}>
 
             <div className="d-flex w-100 justify-content-center align-items-center">
               <div className="flex-grow-1" style={{ flex: 4, borderRight: '3px solid white' }}>

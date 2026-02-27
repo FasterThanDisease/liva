@@ -439,6 +439,48 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
 
 
 
+        <section className="">
+          <div className="container-fluid container-md">
+            <div className="row align-items-center">
+
+              <div className="col-12 col-md-6 d-flex flex-column gap-3">
+
+                <h3 className="mb-3">Women’s Treatment – individuelle Friseurleistungen für Frauen</h3>
+                <p className="text-secondary">
+                  Liva Hairdresser & Barber bietet nicht nur Services für Herren, sondern auch gezielte Angebote für Frauen.
+                  Damen sind im Salon ausdrücklich willkommen und erhalten individuelle Behandlungen, die auf ihre Wünsche und ihren Stil abgestimmt sind.
+                  Ob klassischer Schnitt, modernes Styling oder typgerechte Beratung – der Fokus liegt auf Qualität und persönlicher Betreuung.
+                </p>
+
+                <p className="fw-semibold mt-3">
+                  Für Frauen, die Wert auf Stil, Qualität und persönliche Betreuung legen.
+                </p>
+
+
+                <Link href="/frauen" className="btn bg1 w-50 text-dark  mt-4 px-4 py-2">
+                  Mehr erfahren
+                </Link>
+
+              </div>
+
+              <div className="col-12 col-md-6 mt-4 mt-md-0">
+                <picture>
+
+                  <Image
+                    src="/img/female-services.webp"
+                    alt="Liva Hairdress Womens Treatment"
+                    className="img-fluid rounded-3 shadow-sm"
+                    priority
+                    width={2000}
+                    height={4000}
+                  />
+                </picture>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
 
 
         <section id="kontakt">

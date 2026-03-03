@@ -13,18 +13,21 @@ import { IoLocationOutline, IoCallOutline } from "react-icons/io5";
 const proposal = [
   {
     title: 'Typgerechte Beratung und trendige Frisurenverstärken', text: ' In unserem Salon bieten wir Ihnen typgerechte Beratung und trendige  Frisuren für jeden Anlass. Unsere erfahrenen Friseure gehen auf Ihre  individuellen Wünsche ein und zaubern Ihnen einen neuen Look, der Sie  perfekt in Szene setzt.',
-    img: '/img/img3.webp'
+    img: '/img/img3.webp',
+    alt: 'Service-Foto-1 Liva Hairdress'
   },
   {
     title: 'Perfekte Haarschnitte und Bärte in gepflegter Atmosphäre',
     text: 'Klassische Haarschnitte und Pflege von Bärten entstehen bei uns an einem  Ort gepflegter Männlichkeit.',
-    img: '/img/img1.webp'
+    img: '/img/img1.webp',
+    alt: 'Haarschnitt & Bartpflege Liva Hairdress'
 
   },
   {
     title: 'Immer auf dem neuesten Stand',
     text: 'Wir sind immer auf dem neuesten Stand der Technik und bieten Ihnen  innovative Styling-Techniken, die Ihre Haare zum Strahlen bringen.',
-    img: '/img/img2.webp'
+    img: '/img/img2.webp',
+    alt: 'Serviceangebote-Foto-2 Liva Hairdress'
   }
 ]
 
@@ -309,7 +312,7 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
           <div className="container-fluid container-md">
             <div className="row justify-content-center align-items-center">
               <div className="col-12 col-md-6 order-1 order-md-2 d-flex justify-content-center">
-                <img src="/img/salon.webp" width={'100%'} height={400} style={{ objectFit: 'cover' }} />
+                <img src="/img/salon.webp" alt="Liva Hairdress & Barber Salon in Wilhelmshöhe" width={'100%'} height={400} style={{ objectFit: 'cover' }} />
               </div>
               <div className="col-12 col-md-6 order-2 order-md-1">
                 <h3 className="color1">Liva Hairdress & Barber</h3>
@@ -368,7 +371,7 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
                     <div className="d-flex flex-column justify-content-start align-items-center text-center">
                       <div className="profile-picture">
                         <picture>
-                          <img src={k.img} />
+                          <img src={k.img} alt={k.alt} />
                         </picture>
                       </div>
 

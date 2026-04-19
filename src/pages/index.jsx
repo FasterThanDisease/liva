@@ -13,6 +13,7 @@ import Reviewcard from "@/components/utils/reviewcard";
 import { CiClock2 } from "react-icons/ci";
 import { IoLocationOutline, IoCallOutline } from "react-icons/io5";
 import { useRouter } from "next/router";
+import { PiCube } from "react-icons/pi";
 
 const proposal = [
   {
@@ -205,6 +206,16 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
           imageSrcSet="/hero.webp 1920w, /hero.webp 1280w"
           fetchPriority="high"
         />
+        <link
+          rel="preload"
+          as="image"
+          href=" /img/babershop-utils.webp"
+          type="image/webp"
+          imageSrcSet="/hero.webp 1920w, /hero.webp 1280w"
+          fetchPriority="high"
+        />
+
+
 
         {/* Open Graph */}
         <meta property="og:locale" content="de_DE" />
@@ -443,7 +454,9 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
           <div className="container-fluid container-md">
             <div className="row p-0">
               <div className="col-12 col-md-6 p-0">
-                <img src="/img/babershop-utils.webp" alt="Friseur Utensilien Foto" height={700} width={'100%'} style={{ objectFit: 'cover' }} />
+                <picture>
+                  <img src="/img/babershop-utils.webp" alt="Friseur Utensilien Foto" height={700} width={'100%'} style={{ objectFit: 'cover' }} />
+                </picture>
               </div>
               <div className="col-12 col-md-6 d-flex flex-column p-4">
                 <div>
@@ -473,13 +486,6 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
 
 
         <section>
-          <div className="container-fluid container-md">
-            <div className="row">
-              <div className="col-12">
-
-              </div>
-            </div>
-          </div>
 
 
 
@@ -491,18 +497,22 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
                   <Link href={k.url} style={{ textDecoration: "none" }}>
 
                     {/* Bild */}
-                    <img
-                      src={`/services/${k.img}`}
-                      alt={`Service-Bild-${i}`}
-                      width="100%"
-                      height={700}
-                      className='overlay'
-                      style={{
-                        objectFit: "cover",
-                        objectPosition: "center",
-                        display: "block",
-                      }}
-                    />
+                    <picture>
+
+                      <img
+                        src={`/services/${k.img}`}
+                        alt={`Service-Bild-${i}`}
+                        width="100%"
+                        height={700}
+                        loading="lazy"
+                        className='overlay'
+                        style={{
+                          objectFit: "cover",
+                          objectPosition: "center",
+                          display: "block",
+                        }}
+                      />
+                    </picture>
 
                     {/* Overlay */}
                     <div

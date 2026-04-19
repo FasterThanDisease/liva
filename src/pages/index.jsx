@@ -100,7 +100,7 @@ Das Team ist mega freundlich, Termine lassen sich bequem online buchen und auch 
 const servicecarouselitems = [
   { title: 'Kinder', desc: 'kinderfreundliche Atmosphäre bei Liva Hairdress mit kostenlosen Getränken und Kinderspielzeug für die Wartezeit. Buchen Sie jetzt deinen nächsten Termin für oder mit deinem Kind', subtitle: 'Kinderfreundlicher Friseur in Kassel', img: '/kinderhaarschnitt.webp', url: '/services/kinder' },
   { title: 'Bartpflege', desc: 'Professionelle Bartpflege nach deinen Wünschen. Professionelle Bartpflege bei Liva Haidress. Bei Bedarf bekommst du bei uns auch die passenden Bartpflege-Produkte, um den perfekten Style zu kreiern!', subtitle: '', img: '/bartpflege.webp', url: '/services/bartpflege' },
-  { title: "Woman's Treatment", desc: 'Angenehme Aufenthalte für einen neuen Beauty-Tag mit Liva Hairdress. Wir bieten unseren weiblichen Kundinnen professionellen Hair-Styling, Färb & Haarverlängerungs-Service an.', subtitle: 'Styling, Friseuren, Glow-Up', img: '/frauenhaarschnitt.webp', url: '/services/damen' },
+  { title: "Women's Treatment", desc: 'Angenehme Aufenthalte für einen neuen Beauty-Tag mit Liva Hairdress. Wir bieten unseren weiblichen Kundinnen professionellen Hair-Styling, Färb & Haarverlängerungs-Service an.', subtitle: 'Styling, Friseuren, Glow-Up', img: '/frauenhaarschnitt.webp', url: '/services/damen' },
   { title: 'Herren Haarschnitt', desc: 'Überzeuge dich von den professionellen Haarschnitten bei Liva Hairdress & Barber. Wir sind ein zertifizierter Meistebetrieb und können somit deine Wünsche Wirklichkeit werden lassen. Buche jetzt deinen Termin!', subtitle: '', img: '/maennerhaarschnitt.webp', url: '/services/herren' },
 
 ]
@@ -486,7 +486,7 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
           <div className="container-fluid d-none d-md-block">
             <div className="row p-0 ">
               {servicecarouselitems.map((k, i) =>
-                <div className='col-12 col-md-3 p-0 position-relative'>
+                <div key={i} className='col-12 col-md-3 p-0 position-relative'>
 
                   <Link href={k.url} style={{ textDecoration: "none" }}>
 
@@ -555,7 +555,7 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
 
             <div className="row p-0  d-flex justify-content-start align-items-center flex-nowrap  " style={{ overflowX: 'auto' }}>
               {servicecarouselitems.map((k, i) =>
-                <div className="p-0 position-relative" style={{ maxWidth: "300px" }}>
+                <div key={i} className="p-0 position-relative" style={{ maxWidth: "300px" }}>
                   <Link href={k.url} style={{ textDecoration: "none" }}>
 
                     {/* Bild */}
@@ -656,6 +656,9 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
         </section>
 
 
+
+
+
         <section className="bg-dark text-white">
           <div className="container-fluid container-md" style={{ paddingTop: 50, paddingBottom: 50 }}>
             <div className="row justify-content-center align-items-center">
@@ -709,6 +712,9 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
 
 
 
+
+
+
         <section className="">
           <div className="container-fluid container-md">
             <div className="row align-items-center">
@@ -753,27 +759,7 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
         </section>
 
 
-        <section id="soziales" style={{ paddingTop: 50, paddingBottom: 50 }}>
-          <div className="container-fluid container-md">
-            <div className="row justify-content-center align-items-center text-center">
-              <div className="col-12 d-flex flex-column justify-content-center align-items-center">
-                <h3 className="color3" style={{ fontSize: '4em', fontWeight: 500 }} >Das sagen unsere Kunden über uns </h3>
-              </div>
 
-              <div className="col-12">
-                <div className="masonry">
-                  {demoTestimonials.map((t, index) => (
-                    <Reviewcard
-                      key={index}
-                      name={t.name}
-                      text={t.text}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
 
 
@@ -844,7 +830,27 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
 
 
 
+        <section id="soziales" style={{ paddingTop: 50, paddingBottom: 50 }}>
+          <div className="container-fluid container-md">
+            <div className="row justify-content-center align-items-center text-center">
+              <div className="col-12 d-flex flex-column justify-content-center align-items-center">
+                <h3 className="color3" style={{ fontSize: '4em', fontWeight: 500 }} >Das sagen unsere Kunden über uns </h3>
+              </div>
 
+              <div className="col-12">
+                <div className="masonry">
+                  {demoTestimonials.map((t, index) => (
+                    <Reviewcard
+                      key={index}
+                      name={t.name}
+                      text={t.text}
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
 
 
@@ -856,13 +862,15 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
                 <h3 className="color3" style={{ fontSize: '4em', fontWeight: 500 }}>Vernetze dich mit uns</h3>
               </div>
               {instaPosts.map((k, i) => (
-                <div key={i} className="col-12 col-md-4 d-flex flex-column justify-content-center align-items-center">
-                  <InstagramEmbed key={i} url={k.instaLink} width={328} />
+                <div key={i} className="col-12 col-md-5 d-flex flex-column justify-content-center align-items-start">
+                  <InstagramEmbed key={i} url={k.instaLink} width={500} />
                 </div>
               ))}
             </div>
           </div>
         </section>
+
+
 
 
         <section className="" style={{ paddingTop: 80, paddingBottom: 80 }}>

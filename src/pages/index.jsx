@@ -99,13 +99,35 @@ Das Team ist mega freundlich, Termine lassen sich bequem online buchen und auch 
 
 
 const servicecarouselitems = [
-  { title: 'Kinder', desc: 'kinderfreundliche Atmosphäre bei Liva Hairdress mit kostenlosen Getränken und Kinderspielzeug für die Wartezeit. Buchen Sie jetzt deinen nächsten Termin für oder mit deinem Kind', subtitle: 'Kinderfreundlicher Friseur in Kassel', img: '/kinderhaarschnitt.webp', url: '/services/kinder' },
-  { title: 'Bartpflege', desc: 'Professionelle Bartpflege nach deinen Wünschen. Professionelle Bartpflege bei Liva Haidress. Bei Bedarf bekommst du bei uns auch die passenden Bartpflege-Produkte, um den perfekten Style zu kreiern!', subtitle: '', img: '/bartpflege.webp', url: '/services/bartpflege' },
-  { title: "Women's Treatment", desc: 'Angenehme Aufenthalte für einen neuen Beauty-Tag mit Liva Hairdress. Wir bieten unseren weiblichen Kundinnen professionellen Hair-Styling, Färb & Haarverlängerungs-Service an.', subtitle: 'Styling, Friseuren, Glow-Up', img: '/frauenhaarschnitt.webp', url: '/services/damen' },
-  { title: 'Herren Haarschnitt', desc: 'Überzeuge dich von den professionellen Haarschnitten bei Liva Hairdress & Barber. Wir sind ein zertifizierter Meistebetrieb und können somit deine Wünsche Wirklichkeit werden lassen. Buche jetzt deinen Termin!', subtitle: '', img: '/maennerhaarschnitt.webp', url: '/services/herren' },
-
+  {
+    title: 'Kinder',
+    desc: 'Genießen Sie eine kinderfreundliche Atmosphäre bei Liva Hairdress. Mit kostenlosen Getränken und Spielmöglichkeiten sorgen wir für eine entspannte Wartezeit. Vereinbaren Sie jetzt einen Termin für Ihr Kind.',
+    subtitle: 'Kinderfreundlicher Friseur in Kassel',
+    img: '/kinderhaarschnitt.webp',
+    url: '/services/kinder'
+  },
+  {
+    title: 'Bartpflege',
+    desc: 'Individuelle und professionelle Bartpflege ganz nach Ihren Wünschen. Bei Liva Hairdress erhalten Sie zudem hochwertige Pflegeprodukte für den perfekten Look.',
+    subtitle: '',
+    img: '/bartpflege.webp',
+    url: '/services/bartpflege'
+  },
+  {
+    title: "Women's Treatment",
+    desc: 'Gönnen Sie sich eine Auszeit und erleben Sie professionelle Beauty- und Hair-Services. Wir bieten Styling, Colorationen und Haarverlängerungen auf höchstem Niveau.',
+    subtitle: 'Styling, Coloration & Extensions',
+    img: '/frauenhaarschnitt.webp',
+    url: '/services/damen'
+  },
+  {
+    title: 'Herren Haarschnitt',
+    desc: 'Erleben Sie präzise und moderne Haarschnitte von einem zertifizierten Meisterbetrieb. Wir setzen Ihre individuellen Vorstellungen professionell um. Vereinbaren Sie jetzt Ihren Termin.',
+    subtitle: '',
+    img: '/maennerhaarschnitt.webp',
+    url: '/services/herren'
+  },
 ]
-
 
 const days = [
   null,

@@ -848,7 +848,7 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
               </div>
               {instaPosts.map((k, i) => (
                 <div key={i} className="col-12 col-md-5 d-flex flex-column justify-content-center align-items-start">
-                  <InstagramEmbed key={i} url={k.instaLink} width={500} />
+                  <InstagramEmbed key={i} url={k.instaLink} width={239} />
                 </div>
               ))}
             </div>

@@ -741,7 +741,7 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
 
               <div className="col-12 col-md-6 mt-4 mt-md-0">
                 <picture>
-                  <img src="/img/female-services.webp" width={'100%'} height={700} style={{ objectFit: 'cover', objectPosition: 'center top' }} />
+                  <img src="/img/female-services.webp" alt="Liva Hairdress Womens Treatment" width={'100%'} height={700} style={{ objectFit: 'cover', objectPosition: 'center top' }} />
                   {/* <Image
                     src="/img/female-services.webp"
                     alt="Liva Hairdress Womens Treatment"

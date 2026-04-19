@@ -776,6 +776,8 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
                     <div className="row  justify-content-center align-items-center p-">
                       <h3 className="color3 display-3" style={{ fontSize: '4em', fontWeight: 500 }}>Kontaktiere uns</h3>
 
+                      <div className="divider py-3"></div>
+
                       <div className="mt-5 text-center text-md-start">
                         <p className="py-3">Wir sind gern für dich da.</p>
                         <p className="text-secondary fs-5">
@@ -785,24 +787,7 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
                         <p className="fs-5">Liva Hairdresser & Barber</p>
                         <p className="text-secondary fs-5">Wilhelmshöher Allee 185, 34121 Kassel, Germany</p>
 
-                        <p className="fs-5 me-2">Öffnungszeiten</p>
-                        <div className="col-12 mt-3 d-flex">
-                          <div className="d-flex flex-column flex-md-row gap-5" >
-                            <div className="d-flex flex-column">
-                              <span className="color3">Di - Fr</span>
-                              <span>09:00 - 19:00</span>
-                            </div>
-                            <div className="d-flex flex-column">
-                              <span className="color3">Sa</span>
-                              <span>09:00 - 17:00</span>
-                            </div>
-                            <div className="d-flex flex-column">
-                              <span className="color3">So & Mo</span>
-                              <span>Geschlossen</span>
-                            </div>
-                          </div>
 
-                        </div>
                       </div>
                     </div>
                   </div>

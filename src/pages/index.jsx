@@ -363,17 +363,58 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
               <RxMinusCircled className="pointer hoveri" size={100} color="white" />
             </div>
           </Link> */}
-          <div className="container-fluid" style={{ paddingBottom: 50, zIndex: 1 }}>
-            <div className="row gx-5 justify-content-center " >
 
-              <div className="col-12 d-flex flex-column justify-content-center  align-items-center text-white mb-4 mb-md-0">
-                <h1 className="display-1 fw-bold ">Willkommen bei Liva</h1>
-                <div className="d-flex flex-column flex-md-row  justify-content-center align-items-center gap-2 py-3">
-                  <Link href={'https://buchung.treatwell.de/ort/liva-hairdresser-barber/'} style={{ textDecoration: 'none' }}> <button className="btn btn-color1" style={{ letterSpacing: '2px' }}>ONLINE BUCHEN</button></Link>
-                  <Link href={'tel:+4956134914'} style={{ textDecoration: 'none' }}><button className="btn btn-color1" style={{ letterSpacing: '2px' }}>ODER ANRUFEN</button></Link>
+
+          <div
+            className="container-fluid position-relative"
+            style={{ zIndex: 2, paddingTop: '7rem', paddingBottom: '7rem' }}
+          >
+            <div className="row justify-content-center text-center text-white">
+              <div className="col-12 col-xl-10">
+                <div className="mb-4 mb-md-5">
+                  <h1 className="display-1 fw-bold mb-3">Willkommen bei Liva</h1>
+                  <p
+                    className="mb-0 mx-auto"
+                    style={{
+                      maxWidth: 700,
+                      fontSize: 'clamp(1rem, 2vw, 1.2rem)',
+                      lineHeight: 1.6,
+                    }}
+                  >
+                    Ihr Friseur in Kassel für modernes Hairstyling, Barber-Service und
+                    persönliche Beratung.
+                  </p>
+                </div>
+
+                <div className="d-flex flex-column flex-md-row justify-content-center align-items-stretch gap-3 mx-auto mb-5 mb-xl-6" style={{ maxWidth: 700 }}>
+                  <Link
+                    href="https://buchung.treatwell.de/ort/liva-hairdresser-barber/"
+                    style={{ textDecoration: 'none' }}
+                    className="w-100 w-md-auto"
+                  >
+                    <button
+                      className="btn btn-color1 w-100 px-4 py-3"
+                      style={{ letterSpacing: '2px' }}
+                    >
+                      ONLINE BUCHEN
+                    </button>
+                  </Link>
+
+                  <Link
+                    href="tel:+4956134914"
+                    style={{ textDecoration: 'none' }}
+                    className="w-100 w-md-auto"
+                  >
+                    <button
+                      className="btn btn-color1 w-100 px-4 py-3"
+                      style={{ letterSpacing: '2px' }}
+                    >
+                      ODER ANRUFEN
+                    </button>
+                  </Link>
                 </div>
               </div>
-            </div >
+            </div>
           </div>
         </section>
 
@@ -429,6 +470,156 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
             </div>
           </div>
         </section>
+
+
+        <section>
+          <div className="container-fluid container-md">
+            <div className="row">
+              <div className="col-12">
+
+              </div>
+            </div>
+          </div>
+
+
+
+          <div className="container-fluid d-none d-md-block">
+            <div className="row p-0 ">
+              {servicecarouselitems.map((k, i) =>
+                <div className='col-12 col-md-3 p-0 position-relative'>
+
+                  <Link href={k.url} style={{ textDecoration: "none" }}>
+
+                    {/* Bild */}
+                    <img
+                      src={`/services/${k.img}`}
+                      alt={`Service-Bild-${i}`}
+                      width="100%"
+                      height={700}
+                      className='overlay'
+                      style={{
+                        objectFit: "cover",
+                        objectPosition: "center",
+                        display: "block",
+                      }}
+                    />
+
+                    {/* Overlay */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        background: "rgba(0,0,0,0.1)",
+                        zIndex: 1,
+                      }}
+                    />
+
+                    {/* Content */}
+                    <div
+                      className="glass-blur p-3 rounded-5 position-absolute d-flex flex-column justify-content-center align-items-start"
+                      style={{
+                        zIndex: 2,
+                        bottom: 15,
+                        left: 15,
+                        right: 15,
+                      }}
+                    >
+                      <div className="position-relative w-100">
+
+                        {/* Icon (kein extra Link!) */}
+                        <div
+                          className="position-absolute"
+                          style={{ right: 10, top: 10 }}
+                        >
+                          <FiArrowUpRight size={30} color="black" />
+                        </div>
+
+                        <h4 className={`mb-1 ${i % 2 === 0 ? 'text-white' : 'text-dark'} `}>
+                          <strong>{k.title}</strong>
+                        </h4>
+
+                        <p style={{ fontSize: 12 }} className={`mb-1 ${i % 2 === 0 ? 'text-white' : 'text-dark'} `}>
+                          {k.desc}
+                        </p>
+                      </div>
+                    </div>
+
+                  </Link>
+
+                </div>
+
+              )}
+            </div>
+          </div>
+          <div className="container-fluid d-block d-md-none">
+
+            <div className="row p-0  d-flex justify-content-start align-items-center flex-nowrap  " style={{ overflowX: 'auto' }}>
+              {servicecarouselitems.map((k, i) =>
+                <div className="p-0 position-relative" style={{ maxWidth: "300px" }}>
+                  <Link href={k.url} style={{ textDecoration: "none" }}>
+
+                    {/* Bild */}
+                    <img
+                      src={`/services/${k.img}`}
+                      alt={`Service-Bild-${i}`}
+                      width="300px"
+                      height={700}
+                      style={{
+                        objectFit: "cover",
+                        objectPosition: "center",
+                        display: "block",
+                      }}
+                    />
+
+                    {/* Overlay */}
+                    <div
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        background: "rgba(0,0,0,0.1)",
+                        zIndex: 1,
+                      }}
+                    />
+
+                    {/* Content */}
+                    <div
+                      className="glass-blur p-3 rounded-5 position-absolute d-flex flex-column justify-content-center align-items-start"
+                      style={{
+                        zIndex: 2,
+                        bottom: 15,
+                        left: 15,
+                        right: 15,
+                      }}
+                    >
+                      <div className="position-relative w-100">
+
+                        {/* Icon (kein extra Link!) */}
+                        <div
+                          className="position-absolute"
+                          style={{ right: 10, top: 10 }}
+                        >
+                          <FiArrowUpRight size={30} color="black" />
+                        </div>
+
+                        <h4 className={`mb-1 ${i % 2 === 0 ? 'text-white' : 'text-dark'} `}>
+                          <strong>{k.title}</strong>
+                        </h4>
+
+                        <p style={{ fontSize: 12 }} className={`mb-1 ${i % 2 === 0 ? 'text-white' : 'text-dark'} `}>
+                          {k.desc}
+                        </p>
+                      </div>
+                    </div>
+
+                  </Link>
+                </div>
+              )}
+
+            </div>
+
+          </div>
+        </section>
+
 
 
 
@@ -516,153 +707,6 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
         </section>
 
 
-        <section>
-          <div className="container-fluid container-md">
-            <div className="row">
-              <div className="col-12">
-
-              </div>
-            </div>
-          </div>
-
-
-
-          <div className="container-fluid d-none d-md-block">
-            <div className="row p-0 ">
-              {servicecarouselitems.map((k, i) =>
-                <div className='col-12 col-md-3 p-0 position-relative'>
-
-                  <Link href={k.url} style={{ textDecoration: "none" }}>
-
-                    {/* Bild */}
-                    <img
-                      src={`/services/${k.img}`}
-                      alt={`Service-Bild-${i}`}
-                      width="100%"
-                      height={700}
-                      className='overlay'
-                      style={{
-                        objectFit: "cover",
-                        objectPosition: "center",
-                        display: "block",
-                      }}
-                    />
-
-                    {/* Overlay */}
-                    <div
-                      style={{
-                        position: "absolute",
-                        inset: 0,
-                        background: "rgba(0,0,0,0.1)",
-                        zIndex: 1,
-                      }}
-                    />
-
-                    {/* Content */}
-                    <div
-                      className="glass-blur p-3 rounded-5 position-absolute d-flex flex-column justify-content-center align-items-start"
-                      style={{
-                        zIndex: 2,
-                        bottom: 15,
-                        left: 15,
-                        right: 15,
-                      }}
-                    >
-                      <div className="position-relative w-100">
-
-                        {/* Icon (kein extra Link!) */}
-                        <div
-                          className="position-absolute"
-                          style={{ right: 10, top: 10 }}
-                        >
-                          <FiArrowUpRight size={30} color="black" />
-                        </div>
-
-                        <h4 className={`mb-1 ${i % 2 === 0 ? 'text-white' : 'text-dark'} `}>
-                          <strong>{k.title}</strong>
-                        </h4>
-
-                        <p style={{ fontSize: 12 }} className={`mb-1 ${i % 2 === 0 ? 'text-white' : 'text-dark'} `}>
-                          {k.desc}
-                        </p>
-                      </div>
-                    </div>
-
-                  </Link>
-
-                </div>
-
-              )}
-            </div>
-          </div>
-          <div className="container-fluid d-block d-md-none">
-
-            <div className="row p-0  d-flex justify-content-start align-items-center flex-nowrap  " style={{ overflowX: 'auto' }}>
-              {servicecarouselitems.map((k, i) =>
-                <div className="p-0 position-relative" style={{ maxWidth: "500px" }}>
-                  <Link href={k.url} style={{ textDecoration: "none" }}>
-
-                    {/* Bild */}
-                    <img
-                      src={`/services/${k.img}`}
-                      alt={`Service-Bild-${i}`}
-                      width="100%"
-                      height={700}
-                      style={{
-                        objectFit: "cover",
-                        objectPosition: "center",
-                        display: "block",
-                      }}
-                    />
-
-                    {/* Overlay */}
-                    <div
-                      style={{
-                        position: "absolute",
-                        inset: 0,
-                        background: "rgba(0,0,0,0.1)",
-                        zIndex: 1,
-                      }}
-                    />
-
-                    {/* Content */}
-                    <div
-                      className="glass-blur p-3 rounded-5 position-absolute d-flex flex-column justify-content-center align-items-start"
-                      style={{
-                        zIndex: 2,
-                        bottom: 15,
-                        left: 15,
-                        right: 15,
-                      }}
-                    >
-                      <div className="position-relative w-100">
-
-                        {/* Icon (kein extra Link!) */}
-                        <div
-                          className="position-absolute"
-                          style={{ right: 10, top: 10 }}
-                        >
-                          <FiArrowUpRight size={30} color="black" />
-                        </div>
-
-                        <h4 className={`mb-1 ${i % 2 === 0 ? 'text-white' : 'text-dark'} `}>
-                          <strong>{k.title}</strong>
-                        </h4>
-
-                        <p style={{ fontSize: 12 }} className={`mb-1 ${i % 2 === 0 ? 'text-white' : 'text-dark'} `}>
-                          {k.desc}
-                        </p>
-                      </div>
-                    </div>
-
-                  </Link>
-                </div>
-              )}
-
-            </div>
-
-          </div>
-        </section>
 
 
         <section className="">
@@ -704,6 +748,29 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
                 </picture>
               </div>
 
+            </div>
+          </div>
+        </section>
+
+
+        <section id="soziales" style={{ paddingTop: 50, paddingBottom: 50 }}>
+          <div className="container-fluid container-md">
+            <div className="row justify-content-center align-items-center text-center">
+              <div className="col-12 d-flex flex-column justify-content-center align-items-center">
+                <h3 className="color3" style={{ fontSize: '4em', fontWeight: 500 }} >Das sagen unsere Kunden über uns </h3>
+              </div>
+
+              <div className="col-12">
+                <div className="masonry">
+                  {demoTestimonials.map((t, index) => (
+                    <Reviewcard
+                      key={index}
+                      name={t.name}
+                      text={t.text}
+                    />
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -779,27 +846,7 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
 
 
 
-        <section id="soziales" style={{ paddingTop: 50, paddingBottom: 50 }}>
-          <div className="container-fluid container-md">
-            <div className="row justify-content-center align-items-center text-center">
-              <div className="col-12 d-flex flex-column justify-content-center align-items-center">
-                <h3 className="color3" style={{ fontSize: '4em', fontWeight: 500 }} >Das sagen unsere Kunden über uns </h3>
-              </div>
 
-              <div className="col-12">
-                <div className="masonry">
-                  {demoTestimonials.map((t, index) => (
-                    <Reviewcard
-                      key={index}
-                      name={t.name}
-                      text={t.text}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
 
         <section className="bg-lighti" style={{ paddingTop: 100, paddingBottom: 50 }}>

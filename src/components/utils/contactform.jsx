@@ -19,7 +19,7 @@ export default function Contactform() {
                 <p>Sie möchten einen Termin vereinbaren oder haben Fragen? Wir sind gerne für Sie da! Rufen Sie uns an oder nutzen Sie unser praktisches Kontaktformular, um schnell und unkompliziert einen Termin zu buchen. Unser Salon ist gut erreichbar und bietet Parkmöglichkeiten. Wir freuen uns, Sie bald persönlich begrüßen zu dürfen!</p>
                 <div className=" d-flex py-2  justify-content-start align-items-center " >
                     <div style={{ flex: 1 }}>
-                        <IoCallOutline size={35} color="#FFC107" />
+                        <IoCallOutline size={35} color="#ecdf97" />
                     </div>
                     <div className="text-start ms-2" style={{ flex: 9 }}>
                         <Link style={{ textDecoration: 'none' }} href={'tel:+4956134914'} className=""><span className="text-dark pointer " style={{ fontWeight: 500, }}><u>(+49) 561 349 14</u></span></Link>
@@ -28,7 +28,7 @@ export default function Contactform() {
 
                 <div className=" d-flex py-2  justify-content-start align-items-center " >
                     <div style={{ flex: 1 }}>
-                        <IoLocationOutline size={35} color="#FFC107" />
+                        <IoLocationOutline size={35} color="#ecdf97" />
                     </div>
                     <div className="text-start ms-2" style={{ flex: 9 }}>
 
@@ -39,7 +39,7 @@ export default function Contactform() {
                 </div>
                 <div className=" d-flex py-2  justify-content-start align-items-center " >
                     <div style={{ flex: 1 }}>
-                        <CiMail size={35} color="#FFC107" />
+                        <CiMail size={35} color="#ecdf97" />
                     </div>
                     <div className="text-start ms-2" style={{ flex: 9 }}>
 

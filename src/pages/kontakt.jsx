@@ -135,7 +135,8 @@ export default function Contactpage() {
                     <div className="bg1 d-none d-md-block" style={{ minHeight: 300 }}>
 
                     </div>
-                    <div className="bg1 d-block d-md-none" style={{ minHeight: 200 }}></div>
+                    <div className="bg1 d-block d-md-none" style={{ minHeight: 200 }}>
+                    </div>
                     <div className="container" style={{ marginTop: '-10%', paddingBottom: 100 }}>
                         <div className="col-12 p-5 bg-white shadow shadow-md rounded rounded-3">
 

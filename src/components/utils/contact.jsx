@@ -96,7 +96,7 @@ export default function Contact() {
                 <div className="col-12 py-3">
                     <textarea
                         className="form form-control"
-                        placeholder="Ihre Nachricht an mich"
+                        placeholder="Ihre Nachricht an uns"
                         value={contact.topic}
                         name="topic"
                         onChange={(e) => handleChange(e)}

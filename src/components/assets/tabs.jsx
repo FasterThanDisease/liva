@@ -9,9 +9,10 @@ export default function Tabbar({ tabs }) {
     return (
 
         <div className="tabs">
-            {tabs.map((tab) => (
+            {tabs.map((tab, i) => (
                 <div
-                    key={tab.name}
+
+                    key={i}
                     className={`tab item ${activeTab === tab.name ? "active" : ""}`}
                     onClick={() => setActiveTab(tab.name)}
                 >

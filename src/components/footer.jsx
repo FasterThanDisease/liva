@@ -71,7 +71,7 @@ export default function Footer() {
                             <span className="me-2">|</span>
                             <Link className='text-white px-2' style={{ textDecoration: 'none' }} href='/impressum'><span className="me-2 pointer" >{language === 'de' ? 'Impressum' : 'Imprint'}</span></Link>
                             <span className="me-2">|</span>
-                            <Link className='text-white px-2' style={{ textDecoration: 'none' }} href='/pp'><span className="me-2 pointer" >{language === 'de' ? 'Datenschutz-Bestimmungen' : 'Privacy policy'}</span></Link>
+                            <Link className='text-white px-2' style={{ textDecoration: 'none' }} href='/datenschutz'><span className="me-2 pointer" >{language === 'de' ? 'Datenschutz-Bestimmungen' : 'Privacy policy'}</span></Link>
                             <span className="me-2">|</span>
                             <Link className='text-white px-2' style={{ textDecoration: 'none' }} href='/widerrufsbelehrung'><span className="me-2 pointer" >{language === 'de' ? 'Widerrufsrecht' : 'Right of withdrawal'}</span></Link>
                         </div>

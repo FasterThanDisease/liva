@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://liva-salon.de
+
+# Sitemaps
+Sitemap: https://liva-salon.de/sitemap.xml

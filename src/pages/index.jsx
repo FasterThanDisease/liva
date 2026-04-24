@@ -160,7 +160,7 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
     {
       categoryName: 'Haarschnitte',
       active: 1,
-      servicelines: [{ name: 'klassischer Haarschnitt', price: 23.00 }, { name: 'Traditionelle Bart Nassrasur', price: 18.00 }, { name: 'Bart stutzen', price: 21.00 }, { name: 'Beratung, Haarschnitt & Bart stutzen', price: 38.00 }, { name: 'Dauerwelle', price: 85.00 }]
+      servicelines: [{ name: 'klassischer Haarschnitt', price: 23.00 }, { name: 'Traditionelle Bart Nassrasur', price: 21.00 }, { name: 'Bart stutzen', price: 21.00 }, { name: 'Beratung, Haarschnitt & Bart stutzen', price: 38.00 }, { name: 'Dauerwelle', price: 85.00 }]
     },
     { active: 0, categoryName: 'Haarentfernung', servicelines: [{ name: 'Waxing - Wangen', price: 15.00 }, { name: 'Waxing - Ohren', price: 5.00 }, { name: 'Waxing - Nase', price: 5.00 }, { name: 'Ohrenhaare verbrennen', price: 3.00 }] },
     { active: 0, categoryName: 'Gesichtspflege', servicelines: [{ name: 'Wimpern färben', price: 12.00 }, { name: 'Augenbrauen färben & zupfen', price: 15.00 }, { name: 'Augenbrauen zupfen', price: 8.00 }] }
@@ -233,7 +233,7 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
           as="image"
           href=" /img/babershop-utils.webp"
           type="image/webp"
-          imageSrcSet="/hero.webp 1920w, /hero.webp 1280w"
+          imageSrcSet="/img/babershop-utils.webp 1920w, /img/babershop-utils.webp 1280w"
           fetchPriority="high"
         />
 

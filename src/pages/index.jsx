@@ -805,10 +805,11 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
               <div className="col-12 col-md-6 p-5 d-flex flex-column justify-content-center align-items-center">
                 <div className="d-flex h-100">
                   <div className="container">
-                    <div className="row  justify-content-center align-items-center p-">
+                    <div className="row  justify-content-center  align-items-center text-center text-md-start ">
+
                       <h3 className="color3 display-3" style={{ fontSize: '4em', fontWeight: 500 }}>Kontaktiere uns</h3>
 
-                      <div className="divider py-3"></div>
+                      <div className=" d-flex justify-content-center justify-content-md-start divider py-3"></div>
 
                       <div className="mt-5 text-center text-md-start">
                         <p className="py-3">Wir sind gern für dich da.</p>
@@ -879,8 +880,8 @@ export default function Home({ tenantConfig, staff, tenant, instaPosts }) {
                 <h3 className="color3" style={{ fontSize: '4em', fontWeight: 500 }}>Vernetze dich mit uns</h3>
               </div>
               {instaPosts.map((k, i) => (
-                <div key={i} className="col-12 col-md-5 d-flex flex-column justify-content-center align-items-start">
-                  <InstagramEmbed key={i} url={k.instaLink} width={400} />
+                <div key={i} className="col-12 col-md-5 d-flex flex-column justify-content-center align-items-center align-items-md-start">
+                  <InstagramEmbed key={i} url={k.instaLink} width={329} />
                 </div>
               ))}
             </div>
